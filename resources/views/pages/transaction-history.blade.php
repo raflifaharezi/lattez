@@ -35,10 +35,10 @@
             </div>
     
             <div class="card-body sidebar">
-                <a href="" class="title-sidebar text-decoration-none">
+                <a href="{{ route('bonus-statement') }}" class="title-sidebar text-decoration-none">
                     <i class="fas fa-star"></i>
                     <span class="title">Bonus Statement Status View</span>
-                </a>
+                </a> 
             </div>
         </div>
 

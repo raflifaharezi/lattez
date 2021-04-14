@@ -63,11 +63,11 @@
                         </div>
                         <div class="d-flex justify-content-start">
                             <div class="ml">Nama Member </div>
-                            <div class="ml2">9840983090</div>
+                            <div class="ml2">Supra Astro</div>
                         </div>
                         <div class="d-flex justify-content-start">
                             <div class="ml">Periode Bonus </div>
-                            <div class="ml3">9840983090</div>
+                            <div class="ml3">20-03-2021</div>
                     </div>
                 </div>
         </div>
@@ -76,6 +76,63 @@
     </div>
 
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr class="header-table">
+                        <th scope="col">ID Member</th>
+                        <th scope="col">Nama Member</th>
+                        <th scope="col">Transaksi / Hari</th>
+                        <th scope="col">Total Penjualan</th>
+                        <th scope="col">Reward</th>
+                        <th scope="col">Notifikasi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Sit</td>
+                        <td>100</td>
+                        <td>1000</td>
+                        <td>Emas 1grm</td>
+                        <td>
+                        <button type="button" class="btn btn-danger btn-sm px-3">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Adipisicing</td>
+                        <td>100</td>
+                        <td>1000</td>
+                        <td>Emas 1grm</td>
+                        <td>
+                        <button type="button" class="btn btn-danger btn-sm px-3">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Sit</td>
+                        <td>100</td>
+                        <td>1000</td>
+                        <td>Emas 1grm</td>
+                        <td>
+                        <button type="button" class="btn btn-danger btn-sm px-3">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="container">
     <div class="card-body card-info">
     <div class="row">
         <div class="col-md-2 text-white font-weight-bold">
@@ -85,16 +142,10 @@
             Nama Member
         </div>
         <div class="col-md-2 text-white font-weight-bold">
-            Peringkat
-        </div>
-        <div class="col-md-2 text-white font-weight-bold">
-            PPV
-        </div>
-        <div class="col-md-2 text-white font-weight-bold">
             Reward
         </div>
         <div class="col-md-2 text-white font-weight-bold">
-            RECRUITER
+            Leader
         </div>
     </div>
     </div>
@@ -108,12 +159,6 @@
             </div>
             <div class="col-md-2">
                 HARYANTI
-            </div>
-            <div class="col-md-2">
-                RM
-            </div>
-            <div class="col-md-2">
-                110
             </div>
             <div class="col-md-2">
                 3,693
@@ -135,12 +180,6 @@
                 HARYANTI
             </div>
             <div class="col-md-2">
-                RM
-            </div>
-            <div class="col-md-2">
-                110
-            </div>
-            <div class="col-md-2">
                 3,693
             </div>
             <div class="col-md-2">
@@ -159,12 +198,7 @@
             <div class="col-md-2">
                 HARYANTI
             </div>
-            <div class="col-md-2">
-                RM
-            </div>
-            <div class="col-md-2">
-                110
-            </div>
+           
             <div class="col-md-2">
                 3,693
             </div>
@@ -173,5 +207,5 @@
             </div>
         </div>
     </div>
-    </div>
+    </div> --}}
     @endsection
