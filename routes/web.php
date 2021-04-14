@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/sales', 'Lattez\SalesandBonusController@index');
+Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
+Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
