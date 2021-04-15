@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -41,24 +42,15 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $input = $request->all();
-        $data = User::where('email', $request->username)->first();
-        if($data != null){
-            $role = $data->role;
-        }
+        $data = User::where('email', $request->email)->first();
         $this->validate($request, [
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
   
-        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if(auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])))
+        $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        if(auth()->attempt(array($fieldType => $input['email'], 'password' => $input['password'])))
         {
-            
-            // if($role == 'admin'){
-            //     return redirect()->route('dashboard.admin');
-            // }else{
-            //     return redirect()->route('dashboard.member.index');
-            // }
             return redirect()->route('sales');
         }else{
             return redirect()->route('login')

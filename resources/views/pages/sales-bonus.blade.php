@@ -15,7 +15,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-12">
+            <div class="col-md-4 col-12 ">
                 <div class="card  card-reward">
                     <div class="d-flex flex-row justify-content-start align-items-center">
                         <div class="bg-info card-reward">
