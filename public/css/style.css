@@ -42,9 +42,7 @@ h5{
     margin-bottom: 10px;
     border-radius: 8px;
 }
-.rounded{
-    width: 60px;
-}
+
    
 .card-member{
     margin-top: 15px;
@@ -53,8 +51,14 @@ h5{
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
 } 
 
+.notification{
+    width: 40px !important;
+    height: 40px;
+}
 .notif{
-    color: red;
+    color: #fff;
+    text-align: center;
+    padding: 9px;
 }
 
 .card-reward{
