@@ -93,7 +93,7 @@
                 </form>
 
                 <div class="col-md-10 table-history">
-                    <table class="table table-striped table-responsive">
+                    <table class="table table-striped table-hover table-responsive">
                         <thead>
                             <tr>
                             <th>No Order</th>

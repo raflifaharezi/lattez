@@ -15,11 +15,7 @@
 
     <div class="container">
         <div class="row">
-<<<<<<< HEAD
-            <div class="col-md-6 col-lg-4 col-12 mt-md-3 mt-lg-0 mt-3">
-=======
-            <div class="col-md-4 col-12 ">
->>>>>>> 184bd82db8d9c498f39d12da5df84120fc26297d
+            <div class="col-md-6 col-lg-4 col-12 mt-lg-0 mt-3 mt-md-3">
                 <div class="card  card-reward">
                     <div class="d-flex flex-row justify-content-start align-items-center">
                         <div class="bg-info card-reward">
@@ -37,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 col-12 mt-md-3 mt-lg-0 mt-3 ">
+            <div class="col-md-6 col-lg-4 col-12 mt-lg-0 mt-3 mt-md-3">
                 <div class="card  card-reward">
                     <div class="d-flex flex-row justify-content-start align-items-center">
                         <div class="bg-warning card-reward">
@@ -52,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 col-12 mt-md-3 mt-lg-0 mt-3">
+            <div class="col-md-6 col-lg-4 col-12 mt-lg-0 mt-3 mt-md-3">
                 <div class="card  card-reward">
                     <div class="d-flex flex-row justify-content-start align-items-center">
                         <div class="bg-success card-reward">
@@ -99,7 +95,7 @@
         </div>
     </div>
 
-    <div class="text-center container mt-3">
+    <div class="text-center container mt-5">
     <h5>Pencarian Downline</h5>
     <h5 class="mb-3">Bonus Month</h5>
 
@@ -139,8 +135,11 @@
         <i class="fas fa-file-import"></i> Import Excel
     </button>
 
+   
+
+
     <div class="row mt-4 mb-4">
-        <div class="col-md-5 col-12">
+    <div class="col-md-5 col-12">
             <div class="card-body card-member">
                         <div class="d-flex justify-content-start">
                             <div class="ml">ID Member </div>
@@ -162,7 +161,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="overflow-x:auto;">
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr class="header-table">
@@ -184,8 +183,9 @@
                         <td>1000</td>
                         <td>Emas 1grm</td>
                         <td>
-                            <div class="notification bg-danger rounded-circle border-0 text-decoration-none" 
-                                data-toggle="modal" data-target="#exampleModalCenter">
+                            <div    class="notification bg-danger rounded-circle border-0 text-decoration-none" 
+                                data-toggle="modal" 
+                                data-target="#exampleModalCenter">
                                 <i class="far fa-bell fa-2x notif"></i>
                             </div>
                         </td>
