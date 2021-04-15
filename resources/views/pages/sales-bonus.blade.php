@@ -15,7 +15,11 @@
 
     <div class="container">
         <div class="row">
+<<<<<<< HEAD
             <div class="col-md-6 col-lg-4 col-12 mt-md-3 mt-lg-0 mt-3">
+=======
+            <div class="col-md-4 col-12 ">
+>>>>>>> 184bd82db8d9c498f39d12da5df84120fc26297d
                 <div class="card  card-reward">
                     <div class="d-flex flex-row justify-content-start align-items-center">
                         <div class="bg-info card-reward">
