@@ -13,6 +13,7 @@
     @include('includes.navbar')
 
     @yield('content')
+    @yield('modal')
 
     @include('includes.footer')
 
