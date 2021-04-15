@@ -97,9 +97,10 @@
                         <td>1000</td>
                         <td>Emas 1grm</td>
                         <td>
-                        <button type="button" class="btn btn-danger btn-sm px-3">
-                            <i class="fas fa-times"></i>
-                        </button>
+                            <a href="" type="button" >
+                                <i class="far fa-bell fa-3x"></i>
+                                <span class="badge">3</span>
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -109,9 +110,9 @@
                         <td>1000</td>
                         <td>Emas 1grm</td>
                         <td>
-                        <button type="button" class="btn btn-danger btn-sm px-3">
-                            <i class="fas fa-times"></i>
-                        </button>
+                            <a href="" type="button" >
+                                <i class="far fa-bell fa-3x"></i>
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -121,9 +122,9 @@
                         <td>1000</td>
                         <td>Emas 1grm</td>
                         <td>
-                        <button type="button" class="btn btn-danger btn-sm px-3">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <a href="" type="button" >
+                            <i class="far fa-bell fa-3x"></i>
+                        </a>
                         </td>
                     </tr>
                     </tbody>
