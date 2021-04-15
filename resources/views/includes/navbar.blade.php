@@ -20,7 +20,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('sales') }}">Info Jaringan</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="">Bonus Report</a>
+                        <a class="dropdown-item" href="{{ route('giveaway') }}">Bonus Giveaway</a>
                     </div>
                 </li>
             </ul>

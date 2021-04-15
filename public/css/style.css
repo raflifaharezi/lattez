@@ -42,14 +42,10 @@ h5{
     margin-bottom: 10px;
     border-radius: 8px;
 }
-/* }
-.card-info{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(171,12,195,0.8715861344537815) 45%, rgba(0,212,255,1) 100%);
-    border-radius: 8px;
-    margin-top: 10px;
+.rounded{
+    width: 60px;
 }
-*/
+   
 .card-member{
     margin-top: 15px;
     background-color: #ffffff;
@@ -57,7 +53,19 @@ h5{
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
 } 
 
+.notif{
+    color: red;
+}
 
+.card-reward{
+    border-radius: 8px !important;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+.image-reward{
+    width: 120px;
+    height: 120px;
+    padding-top: 15px;
+}
 
 @media only screen and (min-width: 992px) {
     .select-mont{

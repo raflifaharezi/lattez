@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
 Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
 Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
+Route::get('/giveaway', 'Lattez\GiveawayController@index')->name('giveaway');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -13,9 +13,91 @@
         </div>
     </header>
 
-    <div class="text-center container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <div class="card  card-reward">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div class="bg-info card-reward">
+                            <img    src="{{ asset('images/pajero.png') }}" 
+                                    alt="" 
+                                    class="image-reward"
+                            >
+                        </div>
+                        <div class="ml-2">
+                        <h3 class="font-weight-bold">30000 Sale</h3>
+                        <p class="text-">1 Buah Mobil Pajero</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card  card-reward">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div class="bg-warning card-reward">
+                            <img src="{{ asset('images/smartphone.png') }}" alt="" style="width: 120px; height:120px;">
+                        </div>
+                        <div class="ml-2">
+                        <h3 class="font-weight-bold">10000 Sale</h3>
+                        <p class="text-">100 Smartphone</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card  card-reward">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div class="bg-success card-reward">
+                            <img src="{{ asset('images/emas.png') }}" alt="" style="width: 120px; height:120px;">
+                        </div>
+                        <div class="ml-2">
+                        <h3 class="font-weight-bold">1000 Sale</h3>
+                        <p class="text-">300 1 Gram Emas Antam</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12 mt-3">
+                <div class="card  card-reward">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div class="bg-danger card-reward">
+                            <img src="{{ asset('images/n-max.png') }}" alt="" style="width: 120px; height:120px;">
+                        </div>
+                        <div class="ml-2">
+                        <h3 class="font-weight-bold">1000 Sale</h3>
+                        <p class="text-">8 Motor N-Max</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12 mt-3">
+                <div class="card  card-reward">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div class="bg-primary card-reward">
+                            <img src="{{ asset('images/iphone dan emas.png') }}" alt="" style="width: 120px; height:120px;">
+                        </div>
+                        <div class="ml-2">
+                        <h3 class="font-weight-bold">1000 Sale</h3>
+                        <p class="text-">1 Buah Mobil Pajero</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center container mt-3">
     <h5>Pencarian Downline</h5>
-    <h5>Bonus Month</h5>
+    <h5 class="mb-3">Bonus Month</h5>
 
     <form action="">
         @csrf
@@ -52,6 +134,8 @@
     <button class="btn btn-downline btn-info btn-sm">
         <i class="fas fa-file-import"></i> Import Excel
     </button>
+
+   
 
 
     <div class="row mt-4 mb-4">
@@ -91,40 +175,18 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">
+                            <a href="" class="text-decoration-none">0018</a>
+                        </th>
                         <td>Sit</td>
                         <td>100</td>
                         <td>1000</td>
                         <td>Emas 1grm</td>
                         <td>
-                            <a href="" type="button" >
-                                <i class="far fa-bell fa-3x"></i>
-                                <span class="badge">3</span>
+                            <a  href="" class="notification bg-danger rounded-circle" 
+                                data-toggle="modal" data-target="#exampleModalCenter"  >
+                                <i class="far fa-bell fa-2x notif"></i>
                             </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Adipisicing</td>
-                        <td>100</td>
-                        <td>1000</td>
-                        <td>Emas 1grm</td>
-                        <td>
-                            <a href="" type="button" >
-                                <i class="far fa-bell fa-3x"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Sit</td>
-                        <td>100</td>
-                        <td>1000</td>
-                        <td>Emas 1grm</td>
-                        <td>
-                        <a href="" type="button" >
-                            <i class="far fa-bell fa-3x"></i>
-                        </a>
                         </td>
                     </tr>
                     </tbody>
@@ -133,80 +195,23 @@
         </div>
     </div>
 
-    {{-- <div class="container">
-    <div class="card-body card-info">
-    <div class="row">
-        <div class="col-md-2 text-white font-weight-bold">
-            ID Member
-        </div>
-        <div class="col-md-2 text-white font-weight-bold">
-            Nama Member
-        </div>
-        <div class="col-md-2 text-white font-weight-bold">
-            Reward
-        </div>
-        <div class="col-md-2 text-white font-weight-bold">
-            Leader
-        </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="container">
-    <div class="card-body card-member bg-light">
-        <div class="row">
-            <div class="col-md-2">
-                EID197918
-            </div>
-            <div class="col-md-2">
-                HARYANTI
-            </div>
-            <div class="col-md-2">
-                3,693
-            </div>
-            <div class="col-md-2">
-                EID173690
+    @section('modal')
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Notifikasi</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Penjualan 100 mendekati reward emas
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-
-    <div class="container">
-    <div class="card-body card-member bg-light">
-        <div class="row">
-            <div class="col-md-2">
-                EID197918
-            </div>
-            <div class="col-md-2">
-                HARYANTI
-            </div>
-            <div class="col-md-2">
-                3,693
-            </div>
-            <div class="col-md-2">
-                EID173690
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="container">
-    <div class="card-body card-member bg-light">
-        <div class="row">
-            <div class="col-md-2">
-                EID197918
-            </div>
-            <div class="col-md-2">
-                HARYANTI
-            </div>
-           
-            <div class="col-md-2">
-                3,693
-            </div>
-            <div class="col-md-2">
-                EID173690
-            </div>
-        </div>
-    </div>
-    </div> --}}
+    @endsection
     @endsection
