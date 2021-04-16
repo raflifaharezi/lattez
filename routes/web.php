@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
     Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
     Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
+    Route::get('/orders', 'Lattez\OrdersController@index')->name('orders');
 
     Route::get('/home', 'HomeController@index')->name('home');
 });

@@ -114,7 +114,7 @@
                     <div class="col-md-6 mt-3">
                         <div class="card card-profile">
                             <div class="card-body">
-                                <h5 class="color-profile">Nama Sponsor</h5>
+                                <h5 class="color-profile font-weight-bold font-italic">Nama Sponsor</h5>
                                 <div class="content-profile">TERMINATION</div>
                             </div>
                         </div>
