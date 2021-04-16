@@ -103,8 +103,8 @@
     <h5>Pencarian Downline</h5>
     <h5 class="mb-3">Bonus Month</h5>
 
-    <form action="">
-        @csrf
+    {{-- <form action="">
+        @csrf --}}
         
         <div class="select-mont">
             <select name="" id="" class=" form-control">
@@ -127,24 +127,17 @@
             <input type="text" value="2021" class=" form-control">
         </div>
         
-        <button class="btn btn-downline btn-info" type="submit">
+        <button class="btn btn-downline btn-info">
             <i class="fas fa-arrow-right"></i> Cek Downline
         </button>
 
 
-    </form>
+    {{-- </form> --}}
     </div>
-    <div class="container mt-5" id="container">
-    <button class="btn btn-downline btn-info btn-sm">
-        <i class="fas fa-file-import"></i> Import Excel
-    </button>
-
-   
-
-
-    <div class="row mt-4 mb-4">
-    <div class="col-md-5 col-12">
-            <div class="card-body card-member">
+    <div class="container mt-3">
+        <div class="row mt-4 mb-4">
+            <div class="col-md-5 col-12">
+                <div class="card-body card-member">
                         <div class="d-flex justify-content-start">
                             <div class="ml">ID Member </div>
                             <div class="ml1">9840983090</div>
@@ -158,13 +151,16 @@
                             <div class="ml3">20-03-2021</div>
                     </div>
                 </div>
-        </div>
+            </div>
     </div>
 
     </div>
 
-    <div class="container">
-        <div class="row">
+    <div  class="container" id="container-jaringan">
+        {{-- <div class="row">
+            <button class="btn btn-downline btn-info btn-sm ml-3 mb-2">
+                <i class="fas fa-file-import"></i> Import Excel
+            </button>
             <div class="col-md-12" style="overflow-x:auto;">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -197,8 +193,9 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> --}}
     </div>
+    @endsection
 
     @section('modal')
         
@@ -219,4 +216,49 @@
             </div>
         </div>
     @endsection
-    @endsection
+    @push('after-script')
+        <script>
+            $('.btn-downline').click(function(){
+                var cont = '';
+                cont += '<div class="container" id="container-jaringan">';
+                    cont += '<div class="row"> ';
+                        cont += '<button class="btn btn-downline btn-info btn-sm ml-3 mb-2"> ';
+                            cont += '<i class="fas fa-file-import"></i>Import Excel';
+                        cont += '</button>';
+                        cont += '<h4 class="ml-3">Info Jaringan </h4>';
+                        cont +='<div class="col-md-12" style="overflow-x:auto;">';
+                            cont +='<table class="table table-striped table-hover">';
+                                cont +='<thead>'
+                                    cont +='<tr class="header-table">';
+                                        cont +='<th scope="col">ID Member</th>';
+                                        cont +='<th scope="col">Nama Member</th>';
+                                        cont +='<th scope="col">Transaksi / Hari</th>';
+                                        cont +='<th scope="col">Total Penjualan</th>';
+                                        cont +='<th scope="col">Reward</th>';
+                                        cont +='<th scope="col">Notifikasi</th>';
+                                    cont +='</tr>';
+                                cont +='</thead>';
+
+                                cont +='<tbody>';
+                                    cont +='<tr>';
+                                        cont +='<th scope="row"> <a href="" class="text-decoration-none">0018</a> </th> ';
+                                        cont +='<td>Sit</td>';
+                                        cont +='<td>100</td>';
+                                        cont +='<td>1000</td>';
+                                        cont +='<td>Emas 1grm</td>';
+                                        cont +='<td>';
+                                            cont +='<div class="notification bg-danger rounded-circle border-0 text-decoration-none" data-toggle="modal" data-target="#exampleModalCenter">';
+                                                cont +='<i class="far fa-bell fa-2x notif"></i>';
+                                            cont +='</div>';
+                                        cont +='</td>';
+                                    cont +='</tr>';
+                                cont +='</tbody>';
+                            cont +='</table>';
+                        cont +='</div>';
+
+                    cont +='</div>';
+                cont += '</div>';
+                $('#container-jaringan').html(cont)
+            })
+        </script>
+    @endpush
