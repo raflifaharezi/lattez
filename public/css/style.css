@@ -58,8 +58,8 @@ body{
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
 }
 .image-reward{
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     padding-top: 15px;
 }
 
@@ -101,6 +101,16 @@ td{
 .card-profile{
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
 }
+<<<<<<< HEAD
+=======
+
+.container-info-member{
+    min-width: 130px;
+}
+/* .user-icon{
+    margin-left: 100px;
+} */
+>>>>>>> 224f2ac55df96837fc57753b9ba7571e5672bdff
  /* END: Styling Profile Pages */
 
  

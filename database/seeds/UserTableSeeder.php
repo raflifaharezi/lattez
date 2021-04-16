@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
             'sales'	=> 3600,
             'phone' => '087770300417',
             'address' => 'Taman Raya Citayam',
+            'package_id' => 2,
             'password' => bcrypt('okeoke'),
         ]);
         \App\User::create([
@@ -38,6 +39,7 @@ class UserTableSeeder extends Seeder
             'sales'	=> 1,
             'phone' => '087770300417',
             'address' => 'Curug 45',
+            'package_id' => 1,
             'password' => bcrypt('okeoke'),
         ]);
 

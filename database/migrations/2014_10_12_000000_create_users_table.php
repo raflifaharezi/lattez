@@ -22,9 +22,13 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('leader_id')->nullable();
+            $table->bigInteger('package_id')->unsigned()->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('package_id')
+                  ->references('id')->on('packages');
         });
     }
 
