@@ -18,7 +18,7 @@
                     {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('sales') }}">Profile</a>
+                        <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                         <form action="/logout" method="POST">
                             @csrf
                             <button type="submit" class="dropdown-item">Logout</button>

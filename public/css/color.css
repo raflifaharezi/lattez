@@ -3,4 +3,24 @@
     background-color: #4f704f;
 }
 
+
 /* Text Color */
+h6{
+    color: orange;
+}
+h5{
+    color: orange;
+}
+.color-profile{
+    color:#4f704f ;
+}
+.title{
+    color: #676767;
+    font-weight: 500;
+    margin-left: 20px;
+}
+.content-profile{
+    color: #676767;
+    font-weight: 500;
+    font-size: 13px;
+}

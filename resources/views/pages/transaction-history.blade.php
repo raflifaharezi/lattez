@@ -8,7 +8,7 @@
             <i class="fas fa-home"></i>
         </a>
         <span class="ml-2"> / </span>
-        <p class="ml-2">Profile</p>
+        <p class="ml-2">History Transaction</p>
     </div>
 </header>
 
@@ -21,7 +21,7 @@
             </h5>
     
             <div class="card-body sidebar mt-3">
-                <a class="title-sidebar text-decoration-none" href="">
+                <a class="title-sidebar text-decoration-none" href="{{ route('profile') }}">
                     <i class="fas fa-id-card"></i>
                     <span class="title">Personal Particulars</span>
                 </a>
