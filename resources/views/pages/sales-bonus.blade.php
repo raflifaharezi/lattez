@@ -17,91 +17,79 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-4 col-12 mt-md-3 mt-lg-0 mt-3">
-                <div class="card  card-reward">
-                    <div class="d-flex flex-row justify-content-start align-items-center">
-                        <div class="bg-info card-reward">
-                            <img    src="{{ asset('images/pajero.png') }}" 
-                                    alt="" 
-                                    class="image-reward"
-                            >
-                        </div>
-                        <div class="ml-2">
-                        <h3 class="font-weight-bold">30000 Sale</h3>
-                        <p class="text-">1 Buah Mobil Pajero</p>
-                        </div>
-                        
+    <div class="container mt-2">
+        <div class="row mt-2 mb-4">
+            <div class="col-12">
+                <div class="card-body card-member bg-dark w-100 text-white">
+                    <div class="d-flex justify-content-start">
+                        <div class="font-weight-bold container-info-member d-flex flex-row justify-content-between mr-3"><span>ID Member</span> <span>:</span></div>
+                        <div class=" text-primary">{{ auth()->user()->id }}</div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 col-12 mt-lg-0 mt-3 mt-md-3">
-                <div class="card  card-reward">
-                    <div class="d-flex flex-row justify-content-start align-items-center">
-                        <div class="bg-warning card-reward">
-                            <img src="{{ asset('images/smartphone.png') }}" alt="" style="width: 120px; height:120px;">
-                        </div>
-                        <div class="ml-2">
-                        <h3 class="font-weight-bold">10000 Sale</h3>
-                        <p class="text-">100 Smartphone</p>
-                        </div>
-                        
+                    <div class="d-flex justify-content-start">
+                        <div class="font-weight-bold container-info-member d-flex flex-row justify-content-between mr-3"><span>Nama Member</span> <span>:</span></div>
+                        <div class="">{{ auth()->user()->name }}</div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 col-12 mt-lg-0 mt-3 mt-md-3">
-                <div class="card  card-reward">
-                    <div class="d-flex flex-row justify-content-start align-items-center">
-                        <div class="bg-success card-reward">
-                            <img src="{{ asset('images/emas.png') }}" alt="" style="width: 120px; height:120px;">
-                        </div>
-                        <div class="ml-2">
-                        <h3 class="font-weight-bold">1000 Sale</h3>
-                        <p class="text-">300 1 Gram Emas Antam</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 col-12  mt-3">
-                <div class="card  card-reward">
-                    <div class="d-flex flex-row justify-content-start align-items-center">
-                        <div class="bg-danger card-reward">
-                            <img src="{{ asset('images/n-max.png') }}" alt="" style="width: 120px; height:120px;">
-                        </div>
-                        <div class="ml-2">
-                        <h3 class="font-weight-bold">1000 Sale</h3>
-                        <p class="text-">8 Motor N-Max</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 col-12  mt-3">
-                <div class="card  card-reward">
-                    <div class="d-flex flex-row justify-content-start align-items-center">
-                        <div class="bg-primary card-reward">
-                            <img src="{{ asset('images/iphone dan emas.png') }}" alt="" style="width: 120px; height:120px;">
-                        </div>
-                        <div class="ml-2">
-                        <h3 class="font-weight-bold">1000 Sale</h3>
-                        <p class="text-">36 Hp Iphone dan 10 Gram Emas</p>
-                        </div>
-                        
+                    <div class="d-flex justify-content-start">
+                        <div class="font-weight-bold container-info-member d-flex flex-row justify-content-between mr-3"><span>Paket Reward</span> <span>:</span></div>
+                        <div class="">20-03-2021</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="container my-3">
+
+        <form action="{{ route('package.choose') }}" method="POST">
+            @csrf
+            <p class="">Paket Reward :</p>
+            <div class="d-flex flex-row">
+                <select name="" id="" class=" form-control" style="width: 400px;" @if($user['package_id'] != null) disabled @endif>
+                    @if($user['package_id'] != null)
+                        <option value="{{ $user['Package']['id'] }}">{{ $user['Package']['name'] }}</option>
+                    @else 
+                        @foreach ($package as $d)
+                            <option value="{{ $d['id'] }}">{{ $d['name'] }}</option>
+                        @endforeach
+                    @endif
+                </select>
+                <button class="btn btn-light text-dark border">
+                    Pilih
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            @if($user['package_id'] != null)
+            @foreach ($choosed_reward as $d)    
+            <div class="col-md-6 col-lg-4 col-12 mt-3">
+                <div class="card card-reward">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div class="bg-info card-reward">
+                            <img    src="{{ asset($d['img_path']) }}" 
+                                    alt="" 
+                                    class="image-reward"
+                            >
+                        </div>
+                        <div class="ml-2">
+                        <h3 class="font-weight-bold">{{ $d['reward_quantity'] }}<span> Unit</span></h3>
+                        <p class="text-">{{ $d['name'] }}</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+        </div>
+    </div>
+
     <div class="text-center container mt-5">
-    <h5>Pencarian Downline</h5>
-    <h5 class="mb-3">Bonus Month</h5>
+        <h5>Pencarian Downline</h5>
+        <h5 class="mb-3">Bonus Month</h5>
 
     {{-- <form action="">
         @csrf --}}
@@ -124,7 +112,18 @@
         </div>
 
         <div class="select-mont">
-            <input type="text" value="2021" class=" form-control">
+            <select name="" id="" class=" form-control">
+                <option value="">2021</option>
+                <option value="">2022</option>
+                <option value="">2023</option>
+                <option value="">2024</option>
+                <option value="">2025</option>
+                <option value="">2026</option>
+                <option value="">2027</option>
+                <option value="">2028</option>
+                <option value="">2029</option>
+                <option value="">2030</option>
+            </select>
         </div>
         
         <button class="btn btn-downline btn-info">
@@ -134,28 +133,6 @@
 
     {{-- </form> --}}
     </div>
-    <div class="container mt-3">
-        <div class="row mt-4 mb-4">
-            <div class="col-md-5 col-12">
-                <div class="card-body card-member">
-                        <div class="d-flex justify-content-start">
-                            <div class="ml">ID Member </div>
-                            <div class="ml1">9840983090</div>
-                        </div>
-                        <div class="d-flex justify-content-start">
-                            <div class="ml">Nama Member </div>
-                            <div class="ml2">Supra Astro</div>
-                        </div>
-                        <div class="d-flex justify-content-start">
-                            <div class="ml">Periode Bonus </div>
-                            <div class="ml3">20-03-2021</div>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-    </div>
-
     <div  class="container" id="container-jaringan">
         {{-- <div class="row">
             <button class="btn btn-downline btn-info btn-sm ml-3 mb-2">
