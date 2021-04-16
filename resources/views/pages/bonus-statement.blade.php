@@ -21,7 +21,7 @@
             </h5>
     
             <div class="card-body sidebar mt-3">
-                <a class="title-sidebar text-decoration-none" href="">
+                <a class="title-sidebar text-decoration-none" href="{{ route('profile') }}">
                     <i class="fas fa-id-card"></i>
                     <span class="title">Personal Particulars</span>
                 </a>
@@ -44,17 +44,34 @@
 
         <div class="col-md-6">
             <div class="row">
-                <h6 class="">Bonus Statement</h6>
-                <select name="" id="" class="form-control">
-                    <option value="">Cetak dan diKirim ke Stockiest</option>
-                    <option value="">Digital (Dapat dilihat melalui website lattez.co.id)</option>
-                </select>
-                <div class="title-bonus">
-                    Mohon perhatian terhadap pilihan di atas:
+                <h6 class="ml-3">Bonus Statement</h6>
+                <div class="col-md-10">
+                    <form action="">
+                        <select name="" id="" class="form-control">
+                            <option value="">Cetak dan diKirim ke Stockiest</option>
+                            <option value="">Digital (Dapat dilihat melalui website lattez.co.id)</option>
+                        </select>
                 </div>
-                <div class="text-justify">
-                    Jika Anda memilih Cetak dan dikirim ke Stockist, maka akan dikenakan biaya Rp.10.000 dipotong dari bonus yang Anda dapat.
-                </div>
+                        <div class="col-md-10 mt-3 mb-2 text-danger">
+                            Mohon perhatian terhadap pilihan di atas:
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <div class="text-justify">
+                                Jika Anda memilih Cetak dan dikirim ke Stockist, maka akan dikenakan biaya Rp.10.000 dipotong dari bonus yang Anda dapat.
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="text-justify">
+                                Jika Anda memilih Digital, maka akan bebas biaya, tapi bonus statement bisa dilihat melalui www.lattez.id.
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3">
+                            <button class="btn btn-success" type="submit">
+                                Update
+                            </button>
+                        </div>
+                    </form>
             </div>
         </div>
 

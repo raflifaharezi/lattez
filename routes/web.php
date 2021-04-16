@@ -12,13 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('sales');
 });
+Route::group(['middleware' => ['auth']],function (){
+    Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
+    Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
+    Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
+    Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
 
-Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
-Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
-Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
-Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+Auth::routes();
