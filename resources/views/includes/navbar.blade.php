@@ -8,17 +8,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="{{ route('profile') }}">Profile <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-white" href="{{ route('sales') }}">Sales & Bonus <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('transaction') }}">History Transaksi</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sales & Bonus
+                    {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('sales') }}">Info Jaringan</a>
+                        <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">Logout</button>
+                        </form>
                     </div>
                 </li>
             </ul>
