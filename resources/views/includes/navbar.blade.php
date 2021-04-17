@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light nav-header bg-lattez fixed-top">
     <div class="container">
-        <a class="navbar-brand text-white" href="#"><img src="{{ asset('images/logo-white.svg') }}"/></a>
+        <a class="navbar-brand text-white" href="{{ route('orders') }}"><img src="{{ asset('images/logo-white.svg') }}"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,6 +21,7 @@
                         <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                         <form action="/logout" method="POST">
                             @csrf
+                            <div class="dropdown-divider"></div>
                             <button type="submit" class="dropdown-item">Logout</button>
                         </form>
                     </div>

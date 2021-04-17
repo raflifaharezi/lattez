@@ -4,7 +4,6 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-
 .header-breadcrumb{
     margin-top: 80px;
     height: 50px;
@@ -70,8 +69,9 @@ body{
         text-align: center;
         margin-left: 300px;
     }
-  }
+}
 /* End : Styling Sales and Bonus */
+
 
 /* Start : Styling Transactiuon-history */
 .sidebar{
@@ -94,8 +94,8 @@ th{
 td{
     font-size: 12px;
 }
-
  /* End: Styling Transaction History */
+
 
  /* START: Styling Profile page */
 .card-profile{
@@ -109,3 +109,48 @@ td{
     margin-left: 100px;
 } */
  /* END: Styling Profile Pages */
+
+ 
+ /* START: Styling Orders Page */
+.margin-order{
+    margin-top: 90px;
+}
+
+.total-amount{
+    font-size: 16px;
+    color: #4f704f;
+    font-weight: 600;
+}
+.button-checkout{
+    margin-top: 40px   ;
+}
+
+.quantity {
+    margin-left: 65px;
+    width: 40px;
+}
+
+.quantity button {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 0;
+    background: #fff
+}
+
+.quantity input {
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: 100px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 300;
+}
+
+.total-price {
+    font-size: 18px;
+    color: #000;
+}
