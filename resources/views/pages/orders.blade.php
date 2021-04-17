@@ -16,7 +16,7 @@
                     </div>
                     <hr>
                     <div class="description-product">
-                        <div>
+                        <div class="total-amount">
                             Deskripsi Produk :
                         </div>
                         <p class="text-justify">
@@ -24,41 +24,24 @@
                             Curabitur tincidunt lacus sed accumsan rhoncus. 
                         </p>
                     </div>
-                    <div class="total-quantity">
+                    <div class="total-amount">
                         <div>Quantity</div>
                         <div class="mt-2">
-                            <button type="button" 
-                                id="minus" 
-                                class="btn btn-danger btn-sm"
-                                onclick="minus()"
-                            >
-                                    -
-                            </button>
-                            <input type="number" 
-                                    id="count" 
-                                    value="" 
-                                    min="1"
-                                    class="quantity"
-                                    readonly
-                                    onchange="calculateAmount(this.value)" required
-                            >
-                            
-                            <button type="button" 
-                                    id="add" 
-                                    class="btn btn-success btn-sm"
-                                    onclick="plus()">
-                                    
-                                    +
-                            </button>
+                            <div class="quantity d-flex justify-content-center">
+                                <button class="btn minus-btn disabled" type="button">-</button>
+                                <input type="text" id="quantity" value="1" min="0" readonly>
+                                <button class="btn plus-btn" type="button">+</button>
+                            </div>
                         </div>
                     </div>
                     <div class="total-amount mt-3">
                         <div>
                             Total Amount
                         </div>
-                        <div>
-                            Rp. 75.000
-                        </div>
+                        <p class="total-price">
+                            <span class="text-danger">Rp.</span>
+                            <span id="price" class="text-danger">75000</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -135,47 +118,58 @@
         </div>
     </div>
 
-    {{-- <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select> --}}
-    <label><b>Total Amount</b></label>
-    <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly>
-    <p id="tot_amount">sum</p>
-    <script>
-
 @endsection
 @push('after-script')
-<script>
-    var count = 1;
-var countEl = document.getElementById("count");
-function plus(){
-    count++;
-    countEl.value = count;
-}
-function minus(){
-    if (count > 1) {
-    count--;
-    countEl.value = count;
-    }  
-}
-</script>
 
 <script>
-            function calculateAmount(val) {
-                var tot_price = val * 100;
-                /*display the result*/
-                var divobj = document.getElementById('tot_amount');
-                divobj.value = tot_price;
-            }
+    document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+
+    var valueCount
+    var price = document.getElementById("price").innerText;
+
+    //price calculation function
+    function priceTotal() {
+        var total = valueCount * price;
+        document.getElementById("price").innerText = total
+    }
+
+    //plus button
+    document.querySelector(".plus-btn").addEventListener("click", function() {
+        //getting value of input
+        valueCount = document.getElementById("quantity").value;
+
+        //input value increment by 1
+        valueCount++;
+
+        //setting increment input value
+        document.getElementById("quantity").value = valueCount;
+
+        if (valueCount > 1) {
+            document.querySelector(".minus-btn").removeAttribute("disabled");
+            document.querySelector(".minus-btn").classList.remove("disabled")
+        }
+
+        //calling price function
+        priceTotal()
+    })
+
+    //plus button
+    document.querySelector(".minus-btn").addEventListener("click", function() {
+        //getting value of input
+        valueCount = document.getElementById("quantity").value;
+
+        //input value increment by 1
+        valueCount--;
+
+        //setting increment input value
+        document.getElementById("quantity").value = valueCount
+
+        if (valueCount == 1) {
+            document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+        }
+
+        //calling price function
+        priceTotal()
+    })
 </script>
 @endpush
