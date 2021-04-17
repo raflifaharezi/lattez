@@ -12,7 +12,7 @@ class User extends Authenticatable
     
     public $incrementing = false;
     protected $fillable = [
-        'id', 'name', 'email', 'password', 'sales', 'phone', 'address', 'leader_id', 'package_id',
+        'id', 'name', 'email', 'password', 'sales', 'phone', 'address', 'leader_id', 'package_id', 'reward_expired',
     ];
 
     protected $hidden = [
