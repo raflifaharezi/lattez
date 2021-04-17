@@ -22,6 +22,13 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
     Route::get('/orders', 'Lattez\OrdersController@index')->name('orders');
 
+
+    Route::post('orders', 'Lattez\OrdersController@city')
+    ->name('region.city');
+
+    Route::post('district', 'Lattez\OrdersController@district')
+    ->name('region.district');
+
     Route::get('/home', 'HomeController@index')->name('home');
 });
 Auth::routes();

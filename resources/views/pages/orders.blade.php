@@ -76,28 +76,24 @@
 
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
                             <label for="">Provinsi</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Jawa Barat</option>
-                                <option value="">DKI Jakarta</option>
-                                <option value="">Jawa Tengah</option>
+                            <select name="province" id="province" class="form-control">
+                                @foreach ($provinces as $id => $name)
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
                             <label for="">Kota / Kab</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Kota Bogor</option>
-                                <option value="">Jakarta Timur</option>
-                                <option value="">Semarang</option>
+                            <select name="city" id="city" class="form-control">
+                                <option value=""></option>
                             </select>
                         </div>
 
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
                             <label for="">Kecamatan</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Tegalega</option>
-                                <option value="">Cililitan</option>
-                                <option value="">Semarang</option>
+                            <select name="district" id="district" class="form-control">
+                                <option value=""></option>
                             </select>
                         </div>
 
@@ -120,6 +116,7 @@
 
 @endsection
 @push('after-script')
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
     document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
@@ -171,5 +168,35 @@
         //calling price function
         priceTotal()
     })
+
+</script>
+
+
+<script>
+    // function region laravolt indonesia
+    $(function () {
+    $('#province').on('change', function () {
+        axios.post('{{ route('region.city') }}', {id: $(this).val()})
+            .then(function (response) {
+                $('#city').empty();
+
+                $.each(response.data, function (id, name) {
+                    $('#city').append(new Option(name, id))
+                })
+            });
+    });
+
+    $('#city').on('change', function () {
+        axios.post('{{ route('region.district') }}', {id: $(this).val()})
+            .then(function (response) {
+                $('#district').empty();
+
+                $.each(response.data, function (id, name) {
+                    $('#district').append(new Option(name, id))
+                })
+            });
+    });
+
+});
 </script>
 @endpush
