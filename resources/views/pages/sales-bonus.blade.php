@@ -31,7 +31,11 @@
                     </div>
                     <div class="d-flex justify-content-start">
                         <div class="font-weight-bold container-info-member d-flex flex-row justify-content-between mr-3"><span>Paket Reward</span> <span>:</span></div>
-                        <div class="">20-03-2021</div>
+                        <div class="">@if($user['package_id'] != null){{ $user->Package->name }}@else - @endif</div>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="font-weight-bold container-info-member d-flex flex-row justify-content-between mr-3"><span>Berakhir Pada</span> <span>:</span></div>
+                        <div class="">@if($user['package_id'] != null){{ auth()->user()->reward_expired }}@else - @endif</div>
                     </div>
                 </div>
             </div>
@@ -44,16 +48,19 @@
             @csrf
             <p class="">Paket Reward :</p>
             <div class="d-flex flex-row">
-                <select name="" id="" class=" form-control" style="width: 400px;" @if($user['package_id'] != null) disabled @endif>
+                <input type="hidden" name="user_id" value="{{ $user['id'] }}"/>
+                <input type="hidden" name="expired_on" id="select_expired_on" value=""/>
+                <select name="package" id="select-package" class=" form-control" style="width: 400px;" @if($user['package_id'] != null) disabled @endif>
                     @if($user['package_id'] != null)
                         <option value="{{ $user['Package']['id'] }}">{{ $user['Package']['name'] }}</option>
                     @else 
+                        <option value="pilih" id="pilihpaket">Pilih Paket</option>
                         @foreach ($package as $d)
                             <option value="{{ $d['id'] }}">{{ $d['name'] }}</option>
                         @endforeach
                     @endif
                 </select>
-                <button class="btn btn-light text-dark border">
+                <button class="btn btn-light text-dark border" @if($user['package_id'] != null) disabled @endif>
                     Pilih
                 </button>
             </div>
@@ -62,7 +69,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row container-reward">
             @if($user['package_id'] != null)
             @foreach ($choosed_reward as $d)    
             <div class="col-md-6 col-lg-4 col-12 mt-3">
@@ -83,6 +90,8 @@
                 </div>
             </div>
             @endforeach
+            @else 
+            
             @endif
         </div>
     </div>
@@ -194,6 +203,53 @@
         </div>
     @endsection
     @push('after-script')
+        <script> 
+            $(document).ready(function(){
+                // var selectVal = $("#select-package").val();
+                // alert(selectVar);
+                $("#select-package").change(function(){
+                    $("#pilihpaket").remove();
+                    var reward = '';
+                    if($(this).val() == 1){
+                        $("#select_expired_on").val('{{ $package[0]["period"] }}');
+                        reward += '@foreach($package[0]["Reward"] as $d)';
+                        reward += '<div class="col-md-6 col-lg-4 col-12 mt-3">';
+                            reward += '<div class="card card-reward">';
+                                reward += '<div class="d-flex flex-row justify-content-start align-items-center">';
+                                    reward += '<div class="bg-info card-reward">';
+                                        reward += '<img src="{{ asset($d["img_path"]) }}" alt="" class="image-reward">';
+                                        reward += '</div>';
+                                        reward += '<div class="ml-2">';
+                                            reward += '<h3 class="font-weight-bold">{{ $d["reward_quantity"] }}<span> Unit</span></h3>';
+                                            reward += '<p class="text-">{{ $d["name"] }}</p>';
+                                            reward += '</div>';   
+                                reward += '</div>';
+                            reward += '</div>';
+                        reward += '</div>';
+                        reward += '@endforeach';
+                    }else{
+                        $("#select_expired_on").val('{{ $package[1]["period"] }}');
+                        reward += '@foreach($package[1]["Reward"] as $d)';
+                        reward += '<div class="col-md-6 col-lg-4 col-12 mt-3">';
+                            reward += '<div class="card card-reward">';
+                                reward += '<div class="d-flex flex-row justify-content-start align-items-center">';
+                                    reward += '<div class="bg-info card-reward">';
+                                        reward += '<img src="{{ asset($d["img_path"]) }}" alt="" class="image-reward">';
+                                        reward += '</div>';
+                                        reward += '<div class="ml-2">';
+                                            reward += '<h3 class="font-weight-bold">{{ $d["reward_quantity"] }}<span> Unit</span></h3>';
+                                            reward += '<p class="text-">{{ $d["name"] }}</p>';
+                                            reward += '</div>';   
+                                reward += '</div>';
+                            reward += '</div>';
+                        reward += '</div>';
+                        reward += '@endforeach';
+                    }
+
+                    $(".container-reward").html(reward);
+                });
+            });
+        </script>
         <script>
             $('.btn-downline').click(function(){
                 var cont = '';
@@ -236,6 +292,6 @@
                     cont +='</div>';
                 cont += '</div>';
                 $('#container-jaringan').html(cont)
-            })
+            });
         </script>
     @endpush

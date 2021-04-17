@@ -11,6 +11,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        date_default_timezone_set("Asia/Jakarta");
+        $expired = date("Y-m-d H:i:s", strtotime("+4 months"));
         $leader_id = '#LTZU'.date('YmdHis').strtoupper(Str::random(3));
         \App\User::create([
             // LTZU19042021AKD 
@@ -21,6 +23,7 @@ class UserTableSeeder extends Seeder
             'phone' => '087770300417',
             'address' => 'Taman Raya Citayam',
             'package_id' => 2,
+            'reward_expired' => $expired,
             'password' => bcrypt('okeoke'),
         ]);
         \App\User::create([
@@ -40,6 +43,7 @@ class UserTableSeeder extends Seeder
             'phone' => '087770300417',
             'address' => 'Curug 45',
             'package_id' => 1,
+            'reward_expired' => $expired,
             'password' => bcrypt('okeoke'),
         ]);
 

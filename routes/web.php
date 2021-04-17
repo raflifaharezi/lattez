@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::group(['middleware' => ['auth']],function (){
     Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
-    Route::get('/sales/choose-package', 'Lattez\SalesandBonusController@choosePackage')->name('package.choose');
+    Route::post('/sales/choose-package', 'Lattez\SalesandBonusController@choosePackage')->name('package.choose');
     Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
     Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
     Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
