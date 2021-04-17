@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+Profil
+@endsection
 @section('content')
 
     <header class="bg-light breadcrumb header-breadcrumb">
@@ -43,7 +45,7 @@
             </div>
 
             <div class="col-md-8">
-                <h4 class="color-profile mb-3">Personal Account :</h4>
+                <h4 class="color-profile mb-3">Profil :</h4>
                 <div class="text-center">
                     <img src="{{ asset('images/icon-user.svg') }}" alt="" class="user-icon mb-3">
                 </div>
@@ -52,7 +54,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nama Lengkap</h5>
-                                <div class="content-profile">Haidir Munaf</div>
+                                <div class="content-profile">{{ auth()->user()->name }}</div>
                             </div>
                         </div>
                     </div>
@@ -61,16 +63,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nomer ID Member</h5>
-                                <div class="content-profile">EID173690</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mt-3 ">
-                        <div class="card card-profile">
-                            <div class="card-body">
-                                <h5 class="color-profile font-weight-bold font-italic">Tanggal Lahir</h5>
-                                <div class="content-profile">30-03-2000</div>
+                                <div class="content-profile">{{ auth()->user()->id }}</div>
                             </div>
                         </div>
                     </div>
@@ -79,7 +72,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Alamat Lengkap</h5>
-                                <div class="content-profile">Cilebut, Kab Bogor, Jawa Barat</div>
+                                <div class="content-profile">{{ auth()->user()->address }}</div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +81,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Email</h5>
-                                <div class="content-profile">Cilebut, Kab Bogor, Jawa Barat</div>
+                                <div class="content-profile">{{ auth()->user()->email }}</div>
                             </div>
                         </div>
                     </div>
@@ -97,25 +90,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">No Handphone</h5>
-                                <div class="content-profile">08783826382</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mt-3">
-                        <div class="card card-profile">
-                            <div class="card-body">
-                                <h5 class="color-profile font-weight-bold font-italic">Nomor ID Sponsor</h5>
-                                <div sclass="content-profile">IDBGID002038</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mt-3">
-                        <div class="card card-profile">
-                            <div class="card-body">
-                                <h5 class="color-profile font-weight-bold font-italic">Nama Sponsor</h5>
-                                <div class="content-profile">TERMINATION</div>
+                                <div class="content-profile">{{ auth()->user()->phone }}</div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +99,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nomor ID Leader</h5>
-                                <div class="content-profile">IDBGID002038</div>
+                                <div class="content-profile"></div>
                             </div>
                         </div>
                     </div>
@@ -133,16 +108,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nama Leader</h5>
-                                <div class="content-profile">TERMINATION</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mt-3">
-                        <div class="card card-profile">
-                            <div class="card-body">
-                                <h5 class="color-profile font-weight-bold font-italic">Nomor Virtual Account</h5>
-                                <div class="content-profile">117179663</div>
+                                <div class="content-profile"></div>
                             </div>
                         </div>
                     </div>
@@ -151,7 +117,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">No Rekening</h5>
-                                <div class="content-profile">0952778887</div>
+                                <div class="content-profile"></div>
                             </div>
                         </div>
                     </div>
@@ -160,7 +126,7 @@
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">No KTP</h5>
-                                <div class="content-profile">0952778887</div>
+                                <div class="content-profile"></div>
                             </div>
                         </div>
                     </div>
