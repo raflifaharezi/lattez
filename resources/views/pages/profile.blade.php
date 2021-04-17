@@ -10,7 +10,7 @@ Profil
                 <i class="fas fa-home"></i>
             </a>
             <span class="ml-2"> / </span>
-            <p class="ml-2">Profile</p>
+            <p class="ml-2">Profil</p>
         </div>
     </header>
 

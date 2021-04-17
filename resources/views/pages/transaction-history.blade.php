@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+Riwayat Transaksi
+@endsection
 @section('content')
 
 <header class="bg-light breadcrumb header-breadcrumb">
