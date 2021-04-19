@@ -98,6 +98,13 @@
                         </div>
 
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
+                            <label for="">kelurahan</label>
+                            <select name="village" id="village" class="form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
                             <label for="">Kode Pos</label>
                             <input type="number" name="" class="form-control" min="0">
                         </div>
@@ -196,6 +203,18 @@
                 })
             });
     });
+
+    $('#district').on('change', function () {
+        axios.post('{{ route('region.village') }}', {id: $(this).val()})
+            .then(function (response) {
+                $('#village').empty();
+
+                $.each(response.data, function (id, name) {
+                    $('#village').append(new Option(name, id))
+                })
+            });
+    });
+
 
 });
 </script>

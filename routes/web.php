@@ -29,6 +29,9 @@ Route::group(['middleware' => ['auth']],function (){
     Route::post('district', 'Lattez\OrdersController@district')
     ->name('region.district');
 
+    Route::post('village', 'Lattez\OrdersController@village')
+    ->name('region.village');
+
     Route::get('/home', 'HomeController@index')->name('home');
 });
 Auth::routes();
