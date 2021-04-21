@@ -68,7 +68,12 @@ body{
         width: 500px;
         text-align: center;
         margin-left: 300px;
+        
     }
+    .button-checkout{
+        margin-top: 15px   ;
+    }
+    
 }
 /* End : Styling Sales and Bonus */
 
@@ -120,9 +125,6 @@ td{
     font-size: 16px;
     color: #4f704f;
     font-weight: 600;
-}
-.button-checkout{
-    margin-top: 40px   ;
 }
 
 .quantity {

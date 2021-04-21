@@ -19,6 +19,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                        <div class="dropdown-divider"></div>
                         <form action="/logout" method="POST">
                             @csrf
                             <div class="dropdown-divider"></div>

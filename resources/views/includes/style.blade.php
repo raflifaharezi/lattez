@@ -8,3 +8,5 @@
                 crossorigin="anonymous" />
 <link rel="icon" href="{{ asset('images/favicon.svg') }}" type="image/gif" sizes="16x16">
 <link rel="stylesheet" href="{{ asset('css/color.css') }}"/>
+
+<link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">

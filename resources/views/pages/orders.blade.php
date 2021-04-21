@@ -109,7 +109,7 @@
                             <input type="number" name="" class="form-control" min="0">
                         </div>
 
-                        <div class="col-md-2 mt-2 mt-lg-0 mt-md-0 ">
+                        <div class="col-md-12 mt-2 mt-lg-0 mt-md-0 d-flex justify-content-end flex-row">
                             <button class="btn btn-success button-checkout">
                                 Checkout
                             </button>

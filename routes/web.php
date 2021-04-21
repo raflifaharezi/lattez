@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('sales');
+    return redirect('orders');
 });
 Route::group(['middleware' => ['auth']],function (){
     Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
@@ -21,17 +21,20 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
     Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
     Route::get('/orders', 'Lattez\OrdersController@index')->name('orders');
-
-
     Route::post('orders', 'Lattez\OrdersController@city')
     ->name('region.city');
-
     Route::post('district', 'Lattez\OrdersController@district')
     ->name('region.district');
-
     Route::post('village', 'Lattez\OrdersController@village')
     ->name('region.village');
+    
+    //admin
+    Route::get('/user', 'Admin\UserController@index')->name('user');
+    Route::get('/product', 'Admin\ProductController@index')->name('product');
+    Route::get('/transaction','Admin\TransactionCOntroller@index')->name('transaction');
+
 
     Route::get('/home', 'HomeController@index')->name('home');
+
 });
 Auth::routes();
