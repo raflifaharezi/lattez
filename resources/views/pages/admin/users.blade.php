@@ -271,7 +271,6 @@
     </div>
     {{-- END: User Content --}}
 
-    
     <!-- /#page-content-wrapper -->
 @endsection
 
@@ -287,7 +286,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel">
-                    <i class="fas fa-marker"></i> Tambah User
+                    <i class="fas fa-plus-circle"></i> Tambah User
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -499,7 +498,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div style="font-size: 20px;">Delete User</div>
+                <div style="font-size: 20px;">Delete User ?</div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

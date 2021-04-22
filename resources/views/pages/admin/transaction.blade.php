@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-     <!-- Page Content -->
+    <!-- Page Content -->
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -97,14 +97,14 @@
                                 <a  href="" 
                                     class="btn btn-sm btn-warning"
                                     data-toggle="modal" 
-                                    data-target="#editUser">
+                                    data-target="#editTransaction">
                                     <i class="fas fa-marker"></i>
                                 </a>
 
                                 <button type="button" 
                                         class="btn btn-danger btn-sm ml-lg-1 mt-lg-0 mt-2" 
                                         data-toggle="modal" 
-                                        data-target="#deleteUser">
+                                        data-target="#deleteTransaction">
                                         <i class="fas fa-eraser"></i>
                                 </button>
                             </td>
@@ -115,78 +115,90 @@
                             <div class="accordian-body collapse" id="demo1">
                                 <div class="card card-body">
                                     <div class="row">
-                                        <div class="col-lg-2 col-md-2">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-4">
                                             <img    src="{{ asset('images/lattez-1.jpg') }}" 
                                                     alt="" 
                                                     class="foto-transaction"
-                                                    style="width: 150px; height:150px;">
+                                                    style="width: 140px; height:140px;">
                                         </div>
-                                        <div class="col-lg-10 col-md-10">
-                                            <div class="row ml-lg-3 ml-md-2">
-                                                <div class="col-lg-4 col-md-4">
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-8">
+                                            <div class="row ml-lg-3 ml-md-3">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                                                     <div>Nama Pembeli</div>
                                                     <div class="font-user">Lattez</div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-4">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                                                     <div>ID Member</div>
                                                     <div class="font-user">IDS823823749</div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-4">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-6 mt-1">
                                                     <div>No. Handphone</div>
                                                     <div class="font-user">08783824893</div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-4 mt-lg-4 mt-md-4">
-                                                    <div>Tanggal Transaksi</div>
-                                                    <div class="font-user">30 April 2021</div>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-6 mt-lg-4 mt-md-4 mt-1">
+                                                    <div>Status</div>
+                                                    <div class="font-user text-success">Paid</div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-4 mt-lg-4 mt-md-4">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-6 mt-lg-4 mt-md-4 mt-1">
                                                     <div>Quantity</div>
                                                     <div class="font-user">1</div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-4 mt-lg-4 mt-md-4">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-6 mt-lg-4 mt-md-4 mt-1">
                                                     <div>Total Amount</div>
                                                     <div class="font-user">Rp. 75.000</div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <h5 class="col-lg-12 mt-lg-3 text-dark">
+                                        <h5 class="col-lg-12 mt-lg-3 mt-sm-3 mt-md-3 mt-3 text-dark">
                                             Details Checkout
                                         </h5>
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                             <div>Alamat Lengkap</div>
                                             <div class="font-user">Cibinong</div>
                                         </div>
 
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                                             <div>Provinsi</div>
                                             <div class="font-user">Jawa Barat</div>
                                         </div>
 
-                                        <div class="col-lg-4 mt-lg-3">
+                                        <div class="col-lg-4 col-md-4 col-4 col-sm-4 mt-lg-3 mt-md-3 mt-sm-3 mt-2">
                                             <div>Kota / Kab</div>
                                             <div class="font-user">Cibinong</div>
                                         </div>
 
-                                        <div class="col-lg-8 mt-lg-3">
+                                        <div class="col-lg-8 col-md-8 col-8 col-sm-8 mt-lg-3 mt-md-3 mt-sm-3 mt-2">
                                             <div>Kelurahan</div>
                                             <div>Jawa Barat</div>
                                         </div>
 
-                                        <div class="col-lg-4 mt-lg-3">
+                                        <div class="col-lg-4 col-md-4 col-4 col-sm-4 mt-lg-3 mt-md-3 mt-sm-3 mt-2">
                                             <div>Kelurahan</div>
                                             <div class="font-user">Pakansari</div>
                                         </div>
 
-                                        <div class="col-lg-8 mt-lg-3">
+                                        <div class="col-lg-8 col-md-8 col-8 col-sm-8 mt-lg-3 mt-md-3 mt-sm-3 mt-2">
                                             <div>Kode Pos</div>
                                             <div class="font-user">16915</div>
+                                        </div>
+                                        
+                                        <div class="col-lg-4 col-md-4 col-8 col-sm-4 mt-lg-3 mt-md-3 mt-sm-3 mt-2">
+                                            <form action="">
+                                                <div class="form-group">
+                                                    <label for="">Status</label>
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="">Paid</option>
+                                                        <option value="">Unpaid</option>
+                                                    </select>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -243,6 +255,7 @@
                                             <div>No KTP</div>
                                             <div class="font-user">2165216571</div>
                                         </div>
+
                                         
                                     </div>
                                 </div>
@@ -251,13 +264,143 @@
                         {{-- END: Collapse Details Users --}}
 
                     </tbody>
-                        
 				</table>
-
             </div>
         </div>
 
-
     </div>
     <!-- /#page-content-wrapper -->
+@endsection
+
+@section('modal')
+
+    {{-- Modal Edit Transactiopn --}}
+    <div    class="modal fade" 
+            id="editTransaction" 
+            tabindex="-1" 
+            aria-labelledby="exampleModalLabel" 
+            aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">
+                    <i class="fas fa-marker"></i> Edit Transaction
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <form action="" method="">
+                    @csrf
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Nama Pembeli</label>
+                            <input  type="text" 
+                                    class="form-control" 
+                                    id=""
+                                    name="">
+                        </div>
+    
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">ID Member</label>
+                            <input  type="text" 
+                                    class="form-control" 
+                                    id=""
+                                    name="">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">No. Handphone</label>
+                            <input  type="number" 
+                                    class="form-control" 
+                                    id=""
+                                    name=""
+                                    min="0">
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Quantity</label>
+                            <input  type="number" 
+                                    class="form-control" 
+                                    id=""
+                                    min="0"
+                                    name="">
+                        </div>
+
+                        
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Total Amount</label>
+                            <div>Rp. 75.000</div>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">ALamat Lengkap</label>
+                            <textarea   class="form-control" 
+                                        id=""
+                                        name="">
+                            </textarea>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Provinsi</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">Jawa Barat</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Kota / Kab</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">Kab Bogor</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Kelurahan</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">Pakansari</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">kode Pos</label>
+                            <input  type="number" 
+                                    class="form-control" 
+                                    id=""
+                                    name="">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </div>
+                </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{{-- End Edit Modal --}}
+
+    {{-- Modal Hapus Transaction  --}}
+    <div class="modal fade" id="deleteTransaction" tabindex="-1" 
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div style="font-size: 20px;">Delete Transaction ?</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

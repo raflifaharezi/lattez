@@ -70,7 +70,7 @@
                 class="btn btn-info mb-3"
                 data-toggle="modal" 
                 data-target="#addProduct">
-                <i class="far fa-plus-square"></i> Tambah
+                <i class="fas fa-plus-circle"></i> Tambah
             </a>
             <div class="" style="overflow-x:auto;">
                 <table class="table table-hover table-striped" >
@@ -131,7 +131,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel">
-                    <i class="fas fa-marker"></i> Tambah Produk
+                    <i class="fas fa-plus-circle"></i> Tambah Produk
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -260,7 +260,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div style="font-size: 20px;">Delete Produk</div>
+                <div style="font-size: 20px;">Delete Produk ?</div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
