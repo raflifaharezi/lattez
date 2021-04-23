@@ -7,10 +7,10 @@ body{
 /* Start: Styling Sidebar */
 #sidebar-wrapper{
     min-height: 100vh;
-    background-color: #4f704f !important;
+    background-color: #0e5e0e !important;
 }
 .link-bg{
-    background-color:#4f704f ;
+    background-color:#0e5e0e ;
     color: #fff;
 }
 
@@ -69,11 +69,11 @@ body{
 
   @media only screen and (max-width: 991px) {
     .navbar-color{
-        background-color: #4f704f !important;
+        background-color: #0e5e0e !important;
     }
    }
    
    .navbar-collapse{
        border-radius: 8px;
-       background-color: #fff !important;
+      
    }
