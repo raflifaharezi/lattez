@@ -15,7 +15,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse mt-lg-0 mt-2" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse bg-light mt-lg-0 mt-2" id="navbarSupportedContent">
             <ul class="navbar-nav mt-lg-0 ml-auto">
 
 <!-- /#sidebar-wrapper -->
