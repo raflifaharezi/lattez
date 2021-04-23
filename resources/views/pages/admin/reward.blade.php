@@ -18,6 +18,8 @@
             <div class="collapse navbar-collapse mt-lg-0 mt-2" id="navbarSupportedContent">
             <ul class="navbar-nav mt-lg-0 ml-auto">
 
+<!-- /#sidebar-wrapper -->
+
                 {{-- List Mobile --}}
                 <li class="nav-item d-lg-none d-md-block d-block">
                     <a class="nav-link text-dark ml-3" href="{{ route('user') }}">
@@ -71,7 +73,7 @@
 
         {{-- Content  --}}
         <div class="container-fluid">
-            <h4 class="mt-4 mb-4">Product</h4>
+            <h4 class="mt-4 mb-4">Reward</h4>
             <a  href=""
                 class="btn btn-info mb-3"
                 data-toggle="modal" 
@@ -82,23 +84,25 @@
                 <table class="table table-hover table-striped" >
                     <thead class="header-colors">
                         <tr>
-                            <th class="text-white">Foto Produk</th>
-                            <th class="text-white">Nama Produk</th>
-                            <th class="text-white">Harga Produk</th>
-                            <th class="text-white">Deskripsi Produk</th>
+                            <th class="text-white">#</th>
+                            <th class="text-white">Foto Reward</th>
+                            <th class="text-white">Reward</th>
+                            <th class="text-white">Unit</th>
+                            <th class="text-white">Kategori Reward</th>
                             <th class="text-white">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>
                                 <img    src="{{ asset('images/lattez-1.jpg') }}" 
                                         alt=""
                                         style="width: 40px; height:40px;">
                             </td>
-                            <td>Lattez</td>
-                            <td>Rp. 75.000</td>
-                            <td>Sabun Lattez</td>
+                            <td>Paket Umroh</td>
+                            <td>8</td>
+                            <td>Gold</td>
                             <td>
                                 <a  href="" 
                                     class="btn btn-sm btn-warning"
@@ -137,7 +141,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel">
-                    <i class="fas fa-plus-circle"></i> Tambah Produk
+                    <i class="fas fa-plus-circle"></i> Tambah Reward
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -148,7 +152,7 @@
                         @csrf
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Foto Produk</label>
+                                <label for="" class="col-form-label">Foto Reward</label>
                                 <input  type="file" 
                                         class="form-control" 
                                         id=""
@@ -156,7 +160,7 @@
                             </div>
         
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Nama Produk</label>
+                                <label for="" class="col-form-label">Reward</label>
                                 <input  type="text" 
                                         class="form-control" 
                                         id=""
@@ -164,7 +168,7 @@
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Harga Produk</label>
+                                <label for="" class="col-form-label">Unit</label>
                                 <input  type="number" 
                                         class="form-control" 
                                         id=""
@@ -173,11 +177,11 @@
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Deskripsi Produk</label>
-                                <textarea   name="" 
-                                            id=""
-                                            class="form-control">
-                                </textarea>
+                                <label for="" class="col-form-label">Kategori</label>
+                                <select name="" id="" class="form-control">
+                                    <option value="">Gold</option>
+                                    <option value="">Platinum</option>
+                                </select>
                             </div>
 
                         </div>
@@ -204,7 +208,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel">
-                    <i class="fas fa-marker"></i> Edit Produk
+                    <i class="fas fa-marker"></i> Edit Reward
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -215,7 +219,7 @@
                         @csrf
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Foto Produk</label>
+                                <label for="" class="col-form-label">Foto Reward</label>
                                 <input  type="file" 
                                         class="form-control" 
                                         id=""
@@ -223,7 +227,7 @@
                             </div>
         
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Nama Produk</label>
+                                <label for="" class="col-form-label">Reward</label>
                                 <input  type="text" 
                                         class="form-control" 
                                         id=""
@@ -231,7 +235,7 @@
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Harga Produk</label>
+                                <label for="" class="col-form-label">Unit</label>
                                 <input  type="number" 
                                         class="form-control" 
                                         id=""
@@ -241,10 +245,10 @@
 
                             <div class="form-group col-lg-12">
                                 <label for="" class="col-form-label">Deskripsi Produk</label>
-                                <textarea   name="" 
-                                            id=""
-                                            class="form-control">
-                                </textarea>
+                                <select name="" id="" class="form-control">
+                                    <option value="">Gold</option>
+                                    <option value="">Platinum</option>
+                                </select>
                             </div>
                         </div>
 
@@ -266,7 +270,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div style="font-size: 20px;">Delete Produk ?</div>
+                <div style="font-size: 20px;">Delete Reward ?</div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

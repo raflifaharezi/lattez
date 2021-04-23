@@ -8,8 +8,8 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="navbar-toggler ml-auto" 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-color">
+            <button class="navbar-toggler ml-auto hamburger-color" 
                     type="button" 
                     data-toggle="collapse" 
                     data-target="#navbarSupportedContent" 
@@ -19,24 +19,34 @@
             <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse mt-lg-0" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse mt-lg-0 bg-light mt-2" id="navbarSupportedContent">
             <ul class="navbar-nav mt-lg-0 ml-auto">
 
                 {{-- List Mobile --}}
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">User</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('user') }}">
+                        <i class="fas fa-user-circle"></i> <span class="ml-4">User</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Product</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('product') }}">
+                        <i class="fas fa-tags"></i> <span class="side-produk">Produk</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Order</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
+                        <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Reward</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('rewards') }}">
+                        <i class="fas fa-award"></i> <span class="ml-4">Reward</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Logout</a>
+                    <a class="nav-link text-dark ml-3" href="#">
+                        <i class="fas fa-sign-out-alt"></i> <span class="side-logout">Logout</span>
+                    </a>
                 </li>
                 {{-- End List Mobile  --}}
 
@@ -69,7 +79,7 @@
                 class="btn btn-info mb-3"
                 data-toggle="modal" 
                 data-target="#addUser">
-                <i class="far fa-plus-square"></i> Tambah
+                <i class="fas fa-plus-circle"></i> Tambah
             </a>
             <div class="" style="overflow-x:auto;">
                 <table class="table table-hover table-striped">

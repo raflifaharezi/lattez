@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction');
     Route::get('/bonus-statement', 'Lattez\BonusStatementController@index')->name('bonus-statement');
     Route::get('/profile', 'Lattez\ProfileController@index')->name('profile');
+
     Route::get('/orders', 'Lattez\OrdersController@index')->name('orders');
     Route::post('orders', 'Lattez\OrdersController@city')
     ->name('region.city');
@@ -31,7 +32,16 @@ Route::group(['middleware' => ['auth']],function (){
     //admin
     Route::get('/user', 'Admin\UserController@index')->name('user');
     Route::get('/product', 'Admin\ProductController@index')->name('product');
+
     Route::get('/transaction','Admin\TransactionCOntroller@index')->name('transaction');
+    Route::post('city', 'Admin\TransactionController@city')
+    ->name('region-city');
+    Route::post('district', 'Admin\TransactionController@district')
+    ->name('region-district');
+    Route::post('village', 'Admin\TransactionController@village')
+    ->name('region-village');
+
+    Route::get('/reward', 'Admin\RewardController@index')->name('rewards');
 
 
     Route::get('/home', 'HomeController@index')->name('home');

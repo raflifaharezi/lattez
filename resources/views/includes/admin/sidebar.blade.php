@@ -16,7 +16,7 @@
             <i class="fas fa-chart-bar"></i> 
             <span class="side-order">Order / Transaction</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action link-bg side-reward">
+        <a href="{{ route('rewards') }}" class="list-group-item list-group-item-action link-bg side-reward">
             <i class="fas fa-award"></i> 
             <span class="ml-4">Reward</span>
         </a>

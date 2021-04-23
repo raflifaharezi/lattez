@@ -4,8 +4,8 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="navbar-toggler ml-auto" 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-color">
+            <button class="navbar-toggler ml-auto hamburger-color" 
                     type="button" 
                     data-toggle="collapse" 
                     data-target="#navbarSupportedContent" 
@@ -15,24 +15,34 @@
             <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse mt-lg-0" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse mt-lg-0 mt-2" id="navbarSupportedContent">
             <ul class="navbar-nav mt-lg-0 ml-auto">
 
                 {{-- List Mobile --}}
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">User</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('user') }}">
+                        <i class="fas fa-user-circle"></i> <span class="ml-4">User</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Product</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('product') }}">
+                        <i class="fas fa-tags"></i> <span class="side-produk">Produk</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Order</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
+                        <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Reward</a>
+                    <a class="nav-link text-dark ml-3" href="{{ route('rewards') }}">
+                        <i class="fas fa-award"></i> <span class="ml-4">Reward</span>
+                    </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-4" href="#">Logout</a>
+                    <a class="nav-link text-dark ml-3" href="#">
+                        <i class="fas fa-sign-out-alt"></i> <span class="side-logout">Logout</span>
+                    </a>
                 </li>
                 {{-- End List Mobile  --}}
 
@@ -69,6 +79,7 @@
                             <th class="text-white">Foto Produk</th>
                             <th class="text-white">Nama Produk</th>
                             <th class="text-white">Tanggal Transaksi</th>
+                            <th class="text-white">Status</th>
                             <th class="text-white">Details</th>
                             <th class="text-white">Aksi</th>
                         </tr>
@@ -82,6 +93,7 @@
                             </td>
                             <td>Lattez</td>
                             <td>30 April 2021</td>
+                            <td class="text-success">Paid</td>
                             <td>
                                 <a  href=""
                                     data-toggle="collapse" 
@@ -190,7 +202,7 @@
                                         </div>
                                         
                                         <div class="col-lg-4 col-md-4 col-8 col-sm-4 mt-lg-3 mt-md-3 mt-sm-3 mt-2">
-                                            <form action="">
+                                            <form action="" method="">
                                                 <div class="form-group">
                                                     <label for="">Status</label>
                                                     <select name="" id="" class="form-control">
@@ -198,6 +210,9 @@
                                                         <option value="">Unpaid</option>
                                                     </select>
                                                 </div>
+                                                <button class="btn btn-success" type="submit">
+                                                    Input
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -325,14 +340,15 @@
                                     class="form-control" 
                                     id=""
                                     min="0"
-                                    name="">
+                                    name=""
+                                    onchange="quantityTransaction(this.value)"
+                            >
                         </div>
-
-                        
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">Total Amount</label>
-                            <div>Rp. 75.000</div>
+                            <input type="hidden" id="quantity_js"/>
+                            <input id="total_amount" class="form-control" readonly>
                         </div>
 
                         <div class="form-group col-lg-6">
@@ -345,22 +361,24 @@
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">Provinsi</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Jawa Barat</option>
+                            <select name="province" id="province" class="form-control">
+                                @foreach ($provinces as $id => $name)
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">Kota / Kab</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Kab Bogor</option>
+                            <select name="" id="city" class="form-control">
+                                <option value=""></option>
                             </select>
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">Kelurahan</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Pakansari</option>
+                            <select name="" id="district" class="form-control">
+                                <option value=""></option>
                             </select>
                         </div>
 
@@ -377,12 +395,15 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-success">Edit</button>
                     </div>
+
                 </form>
                 </div>
                 
             </div>
         </div>
     </div>
+
+
 {{-- End Edit Modal --}}
 
     {{-- Modal Hapus Transaction  --}}
@@ -404,3 +425,57 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    // function region laravolt indonesia
+    $(function () {
+    $('#province').on('change', function () {
+        axios.post('{{ route('region-city') }}', {id: $(this).val()})
+            .then(function (response) {
+                $('#city').empty();
+
+                $.each(response.data, function (id, name) {
+                    $('#city').append(new Option(name, id))
+                })
+            });
+    });
+
+    $('#city').on('change', function () {
+        axios.post('{{ route('region-district') }}', {id: $(this).val()})
+            .then(function (response) {
+                $('#district').empty();
+
+                $.each(response.data, function (id, name) {
+                    $('#district').append(new Option(name, id))
+                })
+            });
+    });
+
+    $('#district').on('change', function () {
+        axios.post('{{ route('region-village') }}', {id: $(this).val()})
+            .then(function (response) {
+                $('#village').empty();
+
+                $.each(response.data, function (id, name) {
+                    $('#village').append(new Option(name, id))
+                })
+            });
+    });
+
+
+});
+</script>
+
+<script>
+    function quantityTransaction(val) {
+        var quantity_first = $('#quantity_js').val();
+        console.log(quantity_first);
+        var total_price = val * 75000  ;
+        /*display the result*/
+        var divobj = document.getElementById('total_amount');
+        divobj.value = total_price;
+    }
+</script>
+@endpush

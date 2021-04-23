@@ -64,5 +64,16 @@ body{
    .foto-transaction{
        width: 100px !important;
        height: 100px !important;
-   }
+    }
   }
+
+  @media only screen and (max-width: 991px) {
+    .navbar-color{
+        background-color: #4f704f !important;
+    }
+   }
+   
+   .navbar-collapse{
+       border-radius: 8px;
+       background-color: #fff !important;
+   }

@@ -19,6 +19,6 @@
 
     @stack('before-script')
     @include('includes.script')
-    @stack('after-script')
+    @stack('script')
 </body>
 </html>
