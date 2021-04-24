@@ -5,6 +5,9 @@
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-color">
+            <a class="navbar-brand d-lg-none d-block" href="#">
+                <img src="{{ asset('images/logo-white.svg') }}" alt="">
+            </a>
             <button class="navbar-toggler ml-auto hamburger-color" 
                     type="button" 
                     data-toggle="collapse" 
@@ -32,7 +35,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
+                    <a class="nav-link text-dark ml-3" href="{{ route('transaction-admin') }}">
                         <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
                     </a>
                 </li>
@@ -42,9 +45,13 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="#">
-                        <i class="fas fa-sign-out-alt"></i> <span class="side-logout">Logout</span>
-                    </a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button class="nav-link text-dark ml-3" href="#" style="border: none;">
+                            <i class="fas fa-sign-out-alt"></i> 
+                            <span class="side-logout">Logout</span>
+                        </button>
+                    </form>
                 </li>
                 {{-- End List Mobile  --}}
 
@@ -87,22 +94,29 @@
                             <th class="text-white">#</th>
                             <th class="text-white">Foto Reward</th>
                             <th class="text-white">Reward</th>
-                            <th class="text-white">Unit</th>
-                            <th class="text-white">Kategori Reward</th>
+                            <th class="text-white">Sales</th>
+                            <th class="text-white">Reward Quantity</th>
+                            <th class="text-white">Package</th>
                             <th class="text-white">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if(count($reward) !=0)
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach ($reward as $r => $k)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $i + ($reward->currentPage()-1) * $reward->perPage() }}</td>
                             <td>
-                                <img    src="{{ asset('images/lattez-1.jpg') }}" 
+                                <img    src="{{ $k['img_path'] }}" 
                                         alt=""
                                         style="width: 40px; height:40px;">
                             </td>
-                            <td>Paket Umroh</td>
-                            <td>8</td>
-                            <td>Gold</td>
+                            <td>{{ $k['name'] }}</td>
+                            <td>{{ $k['sales'] }}</td>
+                            <td>{{ $k['reward_quantity'] }}</td>
+                            <td>-</td>
                             <td>
                                 <a  href="" 
                                     class="btn btn-sm btn-warning"
@@ -119,10 +133,17 @@
                                 </button>
                             </td>
                         </tr>
+                        @php
+                            $i++;
+                        @endphp
+                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
-
+            <div class="d-flex justify-content-end flex-row">
+                {{ $reward->links() }}
+            </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->

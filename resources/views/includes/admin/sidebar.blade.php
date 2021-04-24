@@ -12,7 +12,7 @@
             <i class="fas fa-tags"></i>
             <span class="side-produk">Produk</span>
         </a>
-        <a href="{{ route('transaction') }}" class="list-group-item list-group-item-action link-bg">
+        <a href="{{ route('transaction-admin') }}" class="list-group-item list-group-item-action link-bg">
             <i class="fas fa-chart-bar"></i> 
             <span class="side-order">Order / Transaction</span>
         </a>
@@ -20,10 +20,13 @@
             <i class="fas fa-award"></i> 
             <span class="ml-4">Reward</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action link-bg ">
-            <i class="fas fa-sign-out-alt"></i>
-            <span class="side-logout">Logout</span>
-        </a>
+        <form action="/logout" method="POST">
+            @csrf
+            <button class="list-group-item list-group-item-action link-bg" style="border: none;">
+                <i class="fa fa-sign-out-alt"></i>
+                <span class="side-logout">Logout</span>
+            </button>
+        </form>
     </div>
 </div>
 <!-- /#sidebar-wrapper -->

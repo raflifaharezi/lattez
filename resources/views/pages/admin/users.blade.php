@@ -9,6 +9,9 @@
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-color">
+            <a class="navbar-brand d-lg-none d-block" href="#">
+                <img src="{{ asset('images/logo-white.svg') }}" alt="">
+            </a>
             <button class="navbar-toggler ml-auto hamburger-color" 
                     type="button" 
                     data-toggle="collapse" 
@@ -34,7 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
+                    <a class="nav-link text-dark ml-3" href="{{ route('transaction-admin') }}">
                         <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
                     </a>
                 </li>
@@ -44,9 +47,13 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="#">
-                        <i class="fas fa-sign-out-alt"></i> <span class="side-logout">Logout</span>
-                    </a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button class="nav-link text-dark ml-3" href="#" style="border: none;">
+                            <i class="fas fa-sign-out-alt"></i> 
+                            <span class="side-logout">Logout</span>
+                        </button>
+                    </form>
                 </li>
                 {{-- End List Mobile  --}}
 
@@ -89,20 +96,27 @@
                             <th class="text-white">ID Member</th>
                             <th class="text-white">Nama Lengkap</th>
                             <th class="text-white">Alamat Lengkap</th>
+                            <th class="text-white">Package</th>
                             <th class="text-white">Details</th>
                             <th class="text-white">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if(count($user) !=0)
+                        @php
+                            $i =1;
+                        @endphp
+                        @foreach ($user as $u =>$k)
                         <tr>
-                            <td>1</td>
-                            <td>CD1412616</td>
-                            <td>Mark</td>
-                            <td>Cibinong</td>
+                            <td>{{ $i + ($user->currentPage()-1) * $user->perPage() }}</td>
+                            <td>{{ $k['id'] }}</td>
+                            <td>{{ $k['name'] }}</td>
+                            <td>{{ $k['address'] }}</td>
+                            <td>-</td>
                             <td>
                                 <a  href=""
                                     data-toggle="collapse" 
-                                    data-target="#demo1" 
+                                    data-target="#demo{{ $i }}" 
                                     class="accordion-toggle">
                                     <div class="rounded-circle text-white p-2 bg-primary d-flex align-items-center justify-content-center" style="width: 20px; height:20px;">
                                         i
@@ -129,52 +143,52 @@
 
                         {{-- Collapse  Details User--}}
                         <td colspan="12" style="background-color: #fff">
-                            <div class="accordian-body collapse" id="demo1">
+                            <div class="accordian-body collapse" id="demo{{ $i }}">
                                 <div class="card card-body">
                                     <div class="row">
                                         <div class="col-lg-4 col-6 col-md-4">
                                             <div>Id Member</div>
-                                            <div class="font-user">CD1412616</div>
+                                            <div class="font-user">{{ $k['id'] }}</div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4">
                                             <div>Nama Lengkap</div>
-                                            <div class="font-user">Mark</div>
+                                            <div class="font-user">{{ $k['name'] }}</div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-0">
                                             <div>Alamat Lengkap</div>
-                                            <div class="font-user">Cibinong</div>
+                                            <div class="font-user">{{ $k['address'] }}</div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
                                             <div>Email</div>
-                                            <div class="font-user">mark@gmail.com</div>
+                                            <div class="font-user">{{ $k['email'] }}</div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
                                             <div>No. Handphone</div>
-                                            <div class="font-user">0874849494</div>
+                                            <div class="font-user">{{ $k['phone'] }}</div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>No. Leader</div>
-                                            <div class="font-user">LTZ3039</div>
+                                            <div>No. ID Leader</div>
+                                            <div class="font-user">{{ $k['leader_id'] }}</div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
                                             <div>Nama Leader</div>
-                                            <div class="font-user">Lattez</div>
+                                            <div class="font-user"></div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
                                             <div>No Rekening</div>
-                                            <div class="font-user">2165216571</div>
+                                            <div class="font-user"></div>
                                         </div>
             
                                         <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
                                             <div>No KTP</div>
-                                            <div class="font-user">2165216571</div>
+                                            <div class="font-user"></div>
                                         </div>
                                         
                                     </div>
@@ -183,100 +197,21 @@
                         </td>
                         {{-- END: Collapse Details Users --}}
 
-                        <tr>
-                            <td>1</td>
-                            <td>CD1412616</td>
-                            <td>Mark</td>
-                            <td>Cibinong</td>
-                            <td>
-                                <a  href=""
-                                    data-toggle="collapse" 
-                                    data-target="#demo" 
-                                    class="accordion-toggle">
-                                    <div class="rounded-circle text-white p-2 bg-primary d-flex align-items-center justify-content-center" style="width: 20px; height:20px;">
-                                        i
-                                    </div>
-                                </a>
-                            
-                            </td>
-                            <td>
-                                <a  href="" 
-                                    class="btn btn-sm btn-warning"
-                                    data-toggle="modal" 
-                                    data-target="#editUser">
-                                    <i class="fas fa-marker"></i>
-                                </a>
-
-                                <button type="button" 
-                                        class="btn btn-danger btn-sm ml-lg-1 mt-lg-0 mt-2" 
-                                        data-toggle="modal" 
-                                        data-target="#deleteUser">
-                                        <i class="fas fa-eraser"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        {{-- Collapse  Details User--}}
-                        <td colspan="12" style="background-color: #fff">
-                            <div class="accordian-body collapse" id="demo">
-                                <div class="card card-body">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-6 col-md-4">
-                                            <div>Id Member</div>
-                                            <div class="font-user">CD1412616</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4">
-                                            <div>Nama Lengkap</div>
-                                            <div class="font-user">Mark</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-0">
-                                            <div>Alamat Lengkap</div>
-                                            <div class="font-user">Cibinong</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>Email</div>
-                                            <div class="font-user">mark@gmail.com</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>No. Handphone</div>
-                                            <div class="font-user">0874849494</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>No. Leader</div>
-                                            <div class="font-user">LTZ3039</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>Nama Leader</div>
-                                            <div class="font-user">Lattez</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>No Rekening</div>
-                                            <div class="font-user">2165216571</div>
-                                        </div>
-            
-                                        <div class="col-lg-4 col-6 col-md-4 mt-2 mt-lg-2">
-                                            <div>No KTP</div>
-                                            <div class="font-user">2165216571</div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        {{-- END: Collapse Details Users --}}
-
+                        @php
+                            $i++;
+                        @endphp
+                        @endforeach
+                        @endif
+                
                     </tbody>
                         
 				</table>
 
             </div>
+            <div class="d-flex justify-content-end flex-row">
+                {{ $user->links() }}
+            </div>
+            
         </div>
     </div>
     {{-- END: User Content --}}

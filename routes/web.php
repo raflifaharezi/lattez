@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('/user', 'Admin\UserController@index')->name('user');
     Route::get('/product', 'Admin\ProductController@index')->name('product');
 
-    Route::get('/transaction','Admin\TransactionCOntroller@index')->name('transaction');
+    Route::get('/transaction','Admin\TransactionCOntroller@index')->name('transaction-admin');
     Route::post('city', 'Admin\TransactionController@city')
     ->name('region-city');
     Route::post('district', 'Admin\TransactionController@district')

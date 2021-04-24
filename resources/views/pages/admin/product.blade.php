@@ -5,6 +5,11 @@
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-color">
+            <a class="navbar-brand d-lg-none d-block" href="#">
+                <img    src="{{ asset('images/logo-white.svg') }}" 
+                        alt=""
+                >
+            </a>
             <button class="navbar-toggler ml-auto hamburger-color" 
                     type="button" 
                     data-toggle="collapse" 
@@ -30,7 +35,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
+                    <a class="nav-link text-dark ml-3" href="{{ route('transaction-admin') }}">
                         <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
                     </a>
                 </li>
@@ -40,9 +45,13 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="#">
-                        <i class="fas fa-sign-out-alt"></i> <span class="side-logout">Logout</span>
-                    </a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button class="nav-link text-dark ml-3" href="#" style="border: none;">
+                            <i class="fas fa-sign-out-alt"></i> 
+                            <span class="side-logout">Logout</span>
+                        </button>
+                    </form>
                 </li>
                 {{-- End List Mobile  --}}
 
