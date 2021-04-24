@@ -30,7 +30,7 @@ Riwayat Transaksi
             </div>
     
             <div class="card-body sidebar">
-                <a href="{{ route('transaction') }}" class="title-sidebar text-decoration-none">
+                <a href="{{ route('transaction-history') }}" class="title-sidebar text-decoration-none">
                     <i class="fas fa-history"></i>
                     <span class="title">Tracking Your Package</span>
                 </a>

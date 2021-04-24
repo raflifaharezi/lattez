@@ -37,12 +37,12 @@
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="{{ route('transaction-admin') }}">
+                    <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
                         <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
-                    <a class="nav-link text-dark ml-3" href="{{ route('rewards') }}">
+                    <a class="nav-link text-dark ml-3" href="{{ route('reward') }}">
                         <i class="fas fa-award"></i> <span class="ml-4">Reward</span>
                     </a>
                 </li>

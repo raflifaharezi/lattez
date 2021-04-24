@@ -11,7 +11,7 @@
                     <a class="nav-link text-white" href="{{ route('sales') }}">Sales & Bonus <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('transaction') }}">History Transaksi</a>
+                    <a class="nav-link text-white" href="{{ route('transaction-history') }}">History Transaksi</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
