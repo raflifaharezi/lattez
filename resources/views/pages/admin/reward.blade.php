@@ -116,7 +116,7 @@
                             <td>{{ $k['name'] }}</td>
                             <td>{{ $k['sales'] }}</td>
                             <td>{{ $k['reward_quantity'] }}</td>
-                            <td>-</td>
+                            <td>{{ $k['Package']['name'] }}</td>
                             <td>
                                 <a  href="" 
                                     class="btn btn-sm btn-warning"

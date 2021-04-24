@@ -112,7 +112,12 @@
                             <td>{{ $k['id'] }}</td>
                             <td>{{ $k['name'] }}</td>
                             <td>{{ $k['address'] }}</td>
+                            @if ($k['Package']!=null)
+                                <td>{{ $k['Package']['name'] }}</td>
+                            @else
                             <td>-</td>
+                            @endif
+                           
                             <td>
                                 <a  href=""
                                     data-toggle="collapse" 

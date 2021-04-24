@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::with('package')->paginate(5);
+        $user = User::with('Package')->paginate(5);
+        // dd($user);
         return view('pages.admin.users', [
             'user' => $user
         ]);
