@@ -77,6 +77,7 @@
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
                             <label for="">Provinsi</label>
                             <select name="province" id="province" class="form-control">
+                                <option value="Pilih Provinsi">Pilih Provinsi</option>
                                 @foreach ($provinces as $id => $name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
