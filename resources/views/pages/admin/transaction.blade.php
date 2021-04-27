@@ -362,7 +362,8 @@
                             <label for="" class="col-form-label">ALamat Lengkap</label>
                             <textarea   class="form-control" 
                                         id=""
-                                        name="">
+                                        name=""
+                                        style="resize:none; height: 150px;">
                             </textarea>
                         </div>
 

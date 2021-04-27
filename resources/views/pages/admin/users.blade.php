@@ -104,7 +104,7 @@
                     <tbody>
                         @if(count($user) !=0)
                         @php
-                            $i =1;
+                            $i =3;
                         @endphp
                         @foreach ($user as $u =>$k)
                         <tr>
@@ -266,7 +266,8 @@
                             <label for="" class="col-form-label">ALamat Lengkap</label>
                             <textarea   class="form-control" 
                                         id=""
-                                        name="">
+                                        name=""
+                                        style="resize:none; height: 150px;">
                             </textarea>
                         </div>
 
@@ -374,7 +375,8 @@
                             <label for="" class="col-form-label">ALamat Lengkap</label>
                             <textarea   class="form-control" 
                                         id=""
-                                        name="">
+                                        name=""
+                                        style="resize:none; height: 150px;">
                             </textarea>
                         </div>
 

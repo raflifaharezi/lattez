@@ -71,7 +71,11 @@
 
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
                             <label for="">ALamat Lengkap:</label>
-                            <textarea name="" id="" class="form-control"></textarea>
+                            <textarea   name="" 
+                                        id="" 
+                                        class="form-control"
+                                        style="resize:none; height: 150px;">
+                            </textarea>
                         </div>
 
                         <div class="col-md-4 mt-2 mt-lg-2 mt-md-2">
@@ -124,7 +128,9 @@
 
 @endsection
 @push('after-script')
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{{-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+
+<script src="{{ asset('components/js/axios.min.js') }}"></script>
 
 <script>
     document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
