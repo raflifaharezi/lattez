@@ -4,11 +4,15 @@ Daftar
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container " style="margin-top: 30px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Daftar') }}</div>
+            <div class="card border-0 shadow bg-white rounded">
+                <h4    class="card-header font-weight-bold text-white"
+                        style="background-color: #12A8A2"
+                >
+                    {{ __('Daftar') }}
+                </h4>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -94,12 +98,15 @@ Daftar
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Daftar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                </div>
+                <div    class="card-header"  
+                        style="background-color: #12A8A2; height:40px;">
                 </div>
             </div>
         </div>

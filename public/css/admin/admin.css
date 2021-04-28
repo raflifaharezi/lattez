@@ -61,13 +61,13 @@ body{
     border-radius: 10px;
 }
 @media only screen and (max-width: 520px) {
-   .foto-transaction{
-       width: 100px !important;
-       height: 100px !important;
+        .foto-transaction{
+            width: 100px !important;
+            height: 100px !important;
+        }
     }
-  }
 
-  @media only screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
     .navbar-color{
         background-color: #0e5e0e !important;
         position: sticky;
@@ -78,10 +78,23 @@ body{
     .container-fluid{
         margin-top: 20px;
     }
-   }
-   
-    .navbar-collapse{
-       border-radius: 8px;
-      
-   }
- 
+}
+
+.navbar-collapse{
+border-radius: 8px;
+}
+
+/* Start: Styling Dashboard admin */
+.card-item{
+    height: 110px;
+}
+
+.item-color-transaction{
+    background-color: rgb(44, 44, 44);
+}
+.item-color-users{
+    background-color: #278cb4;
+}
+.item-color-rewards{
+    background-color: rgb(28, 156, 28);
+}

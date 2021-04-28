@@ -90,8 +90,8 @@
                 <h4 class="mt-4">Dashboard</h4>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="card border-0 d-flex flex-row align-items-center bg-dark p-0" style="height: 110px;">
-                            <div class="m-0 p-0 h-100 rounded-lg" style="background: rgb(44, 44, 44);">
+                        <div class="card card-item border-0 d-flex flex-row align-items-center bg-dark p-0">
+                            <div class="m-0 p-0 h-100 rounded-lg item-color-transaction" >
                                 <div class="d-flex flex-row justify-content-center align-items-center h-100" style="width: 100px;">
                                     <i class="fas fa-chart-bar fa-3x text-white"></i>
                                 </div>
@@ -104,8 +104,8 @@
                     </div>
 
                         <div class="col-lg-4 col-sm-6 col-12 mt-lg-0 mt-sm-0 mt-2">
-                            <div class="card border-0 d-flex flex-row align-items-center bg-info p-0" style="height: 110px;">
-                                <div class="m-0 p-0 h-100 rounded-lg" style="background: #278cb4">
+                            <div class="card card-item border-0 d-flex flex-row align-items-center bg-info p-0">
+                                <div class="m-0 p-0 h-100 rounded-lg item-color-users">
                                     <div class="d-flex flex-row justify-content-center align-items-center h-100" style="width: 100px;">
                                         <i class="fas fa-user-circle text-white fa-3x"></i>
                                     </div>
@@ -118,8 +118,8 @@
                         </div>
 
                         <div class="col-lg-4 col-sm-6 col-12 mt-lg-0 mt-2">
-                            <div class="card d-flex flex-row align-items-center bg-success p-0" style="height: 110px;">
-                                <div class="m-0 p-0 h-100 rounded-lg" style="background: rgb(28, 156, 28);">
+                            <div class="card card-item border-0 d-flex flex-row align-items-center bg-success p-0">
+                                <div class="m-0 p-0 h-100 rounded-lg item-color-rewards">
                                     <div class="d-flex flex-row justify-content-center align-items-center h-100" style="width: 100px;">
                                         <i class="fas fa-award text-white fa-3x"></i> 
                                     </div>
@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                         </div>
-                   
+                
                 </div>
             </div>
                 {{-- END: User Content --}}
