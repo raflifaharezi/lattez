@@ -105,8 +105,8 @@
                             <th class="text-white">#</th>
                             <th class="text-white">ID Member</th>
                             <th class="text-white">Nama Lengkap</th>
-                            <th class="text-white">Alamat Lengkap</th>
                             <th class="text-white">Package</th>
+                            <th class="text-white">Reward Expired</th>
                             <th class="text-white">Details</th>
                             <th class="text-white">Aksi</th>
                         </tr>
@@ -116,18 +116,42 @@
                         @php
                             $i =1;
                         @endphp
+                        {{-- @php 
+                        // $time = strtotime('10/16/2003');
+                        // $newformat = date('Y-m-d',$time);
+                        $date = strtotime($v['created_at']);
+                        $year = date('Y', $date);
+                        $month = date('M', $date);
+                        $day = date('d', $date);
+                        $time = date('h:i:sa', $date)
+                        @endphp --}}
                         @foreach ($user as $u =>$k)
+                            @php
+                                $data = strtotime($k['reward_expired']);
+                                $year = date('Y', $data);
+                                $month = date('M', $data);
+                                $day  = date('d', $data);
+                                $time =date('h:i:sa', $data)
+                            @endphp
+
                         <tr>
                             <td>{{ $i + ($user->currentPage()-1) * $user->perPage() }}</td>
                             <td>{{ $k['id'] }}</td>
                             <td>{{ $k['name'] }}</td>
-                            <td>{{ $k['address'] }}</td>
                             @if ($k['Package']!=null)
                                 <td>{{ $k['Package']['name'] }}</td>
-                            @else
-                            <td>-</td>
+                                @else
+                                <td>-</td>
                             @endif
-                           
+
+                            
+
+                            @if ($k['reward_expired'] !=null)
+                            <td>{{ $day.' '.$month.' '.$year.' '.$time }}</td>
+                                @else
+                                <td>-</td>
+                            @endif
+
                             <td>
                                 <a  href=""
                                     data-toggle="collapse" 
