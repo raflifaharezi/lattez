@@ -70,13 +70,13 @@ body{
   @media only screen and (max-width: 991px) {
     .navbar-color{
         background-color: #0e5e0e !important;
-        position: fixed;
+        position: sticky;
         top: 0;
         width: 100%;
         overflow: hidden;
     }
     .container-fluid{
-        margin-top: 90px;
+        margin-top: 20px;
     }
    }
    
@@ -84,3 +84,4 @@ body{
        border-radius: 8px;
       
    }
+ 

@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']],function (){
     ->name('region.village');
     
     //admin
+    Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/user', 'Admin\UserController@index')->name('user');
     Route::get('/product', 'Admin\ProductController@index')->name('product');
 

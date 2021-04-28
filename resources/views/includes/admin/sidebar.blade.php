@@ -4,6 +4,10 @@
         <img src="{{ asset('images/logo-white.svg') }}" alt="">
     </div>
     <div class="list-group list-group-flush mt-4" >
+        <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action link-bg side-user {{ Request::is('dashboard')? "active":"" }}">
+            <i class="fas fa-border-all"></i>
+            <span class="ml-4">Dashboard</span>
+        </a>
         <a href="{{ route('user') }}" class="list-group-item list-group-item-action link-bg side-user {{ Request::is('user')? "active":"" }}">
             <i class="fas fa-user-circle"></i>
             <span class="ml-4">User</span>

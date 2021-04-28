@@ -27,23 +27,33 @@
 
                 {{-- List Mobile --}}
                 <li class="nav-item d-lg-none d-md-block d-block">
+                    <a class="nav-link text-dark ml-3" href="{{ route('dashboard') }}">
+                        <i class="fas fa-border-all"></i>
+                        <span class="ml-4">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item d-lg-none d-md-block d-block">
                     <a class="nav-link text-dark ml-3" href="{{ route('user') }}">
-                        <i class="fas fa-user-circle"></i> <span class="ml-4">User</span>
+                        <i class="fas fa-user-circle"></i> 
+                        <span class="ml-4">User</span>
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
                     <a class="nav-link text-dark ml-3" href="{{ route('product') }}">
-                        <i class="fas fa-tags"></i> <span class="side-produk">Produk</span>
+                        <i class="fas fa-tags"></i>
+                        <span class="side-produk">Produk</span>
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
                     <a class="nav-link text-dark ml-3" href="{{ route('transaction') }}">
-                        <i class="fas fa-chart-bar"></i> <span class="side-order">Order / Transaction</span>
+                        <i class="fas fa-chart-bar"></i> 
+                        <span class="side-order">Order / Transaction</span>
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
                     <a class="nav-link text-dark ml-3" href="{{ route('reward') }}">
-                        <i class="fas fa-award"></i> <span class="ml-4">Reward</span>
+                        <i class="fas fa-award"></i> 
+                        <span class="ml-4">Reward</span>
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-md-block d-block">
@@ -104,7 +114,7 @@
                     <tbody>
                         @if(count($user) !=0)
                         @php
-                            $i =3;
+                            $i =1;
                         @endphp
                         @foreach ($user as $u =>$k)
                         <tr>
