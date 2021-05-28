@@ -8,9 +8,7 @@ Daftar
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card border-0 shadow bg-white rounded">
-                <h4    class="card-header font-weight-bold text-white"
-                        style="background-color: #12A8A2"
-                >
+                <h4    class="card-header font-weight-bold text-white bg-light text-dark text-center">
                     {{ __('Daftar') }}
                 </h4>
 
@@ -105,8 +103,8 @@ Daftar
                         </div>
                     </form>
                 </div>
-                <div    class="card-header"  
-                        style="background-color: #12A8A2; height:40px;">
+                <div    class="card-header bg-light"  
+                        style="height:40px;">
                 </div>
             </div>
         </div>

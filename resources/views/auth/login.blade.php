@@ -8,10 +8,9 @@ Masuk
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card border-0 shadow bg-white rounded">
-                <h3 class="card-header font-weight-bold text-white text-center" 
-                    style="background-color: #12A8A2;">
+                <h4 class="card-header font-weight-bold text-dark text-center bg-light">
                     {{ __('Login User') }}
-                </h3>
+                </h4>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -72,8 +71,8 @@ Masuk
                         </div>
                     </form>
                 </div>
-                <div    class="card-header"  
-                        style="background-color: #12A8A2; height:40px;">
+                <div    class="card-header bg-light"  
+                        style="height:40px;">
                 </div>
             </div>
         </div>
