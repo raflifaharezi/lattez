@@ -17,12 +17,12 @@ Profil
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h5 class="title-header">
+                {{--  <h5 class="title-header">
                     <i class="far fa-user fa-2x"></i>    
                     MY ACCOUNT
-                </h5>
+                </h5>  --}}
         
-                <div class="card-body sidebar mt-3">
+                <div class="card-body sidebar">
                     <a class="title-sidebar text-decoration-none" href="{{ route('profile') }}">
                         <i class="fas fa-id-card"></i>
                         <span class="title">Personal Particulars</span>
@@ -54,7 +54,7 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nama Lengkap</h5>
-                                <div class="content-profile">{{ auth()->user()->name }}</div>
+                                <input readonly type="text" class="form-control" value="{{ auth()->user()->name }}"/>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nomer ID Member</h5>
-                                <div class="content-profile">{{ auth()->user()->id }}</div>
+                                <input readonly type="text" class="form-control" value="{{ auth()->user()->id }}"/>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Alamat Lengkap</h5>
-                                <div class="content-profile">{{ auth()->user()->address }}</div>
+                                <input readonly type="text" class="form-control" value="{{ auth()->user()->address }}"/>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Email</h5>
-                                <div class="content-profile">{{ auth()->user()->email }}</div>
+                                <input readonly type="text" class="form-control" value="{{ auth()->user()->email }}"/>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">No Handphone</h5>
-                                <div class="content-profile">{{ auth()->user()->phone }}</div>
+                                <input readonly type="text" class="form-control" value="{{ auth()->user()->phone }}"/>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nomor ID Leader</h5>
-                                <div class="content-profile"></div>
+                                <input readonly type="text" class="form-control" value="{{ auth()->user()->leader_id }}"/>
                             </div>
                         </div>
                     </div>
@@ -108,12 +108,12 @@ Profil
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">Nama Leader</h5>
-                                <div class="content-profile"></div>
+                                <input readonly type="text" class="form-control no-readonly" value="@if($leader != NULL) {{ $leader['name'] }} @else  @endif"/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mt-3">
+                    {{--  <div class="col-md-6 mt-3">
                         <div class="card card-profile">
                             <div class="card-body">
                                 <h5 class="color-profile font-weight-bold font-italic">No Rekening</h5>
@@ -129,7 +129,7 @@ Profil
                                 <div class="content-profile"></div>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
                 </div>
             </div>
         </div>

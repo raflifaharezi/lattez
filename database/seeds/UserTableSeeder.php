@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
             'address' => 'Taman Raya Citayam',
             'package_id' => 2,
             'reward_expired' => $expired,
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
         \App\User::create([
             'id' => '#LTZU'.date('YmdHis').strtoupper(Str::random(3)),
@@ -33,7 +33,7 @@ class UserTableSeeder extends Seeder
             'sales'	=> 55,
             'phone' => '0989354353425',
             'address' => 'Curug 45',
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
         \App\User::create([
             'id' => '#LTZU'.date('YmdHis').strtoupper(Str::random(3)),
@@ -44,7 +44,7 @@ class UserTableSeeder extends Seeder
             'address' => 'Curug 45',
             'package_id' => 1,
             'reward_expired' => $expired,
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
 
         // GET LEADER ID 
@@ -58,7 +58,7 @@ class UserTableSeeder extends Seeder
             'phone' => '083432423',
             'address' => 'Puri Nirwana',
             'leader_id' => $leader_id,
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
         \App\User::create([
             'id' => '#LTZU'.date('YmdHis').strtoupper(Str::random(3)),
@@ -68,7 +68,7 @@ class UserTableSeeder extends Seeder
             'phone' => '087770300417',
             'address' => 'Kemang Village',
             'leader_id' => $leader_id,
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
         \App\User::create([
             'id' => '#LTZU'.date('YmdHis').strtoupper(Str::random(3)),
@@ -78,7 +78,7 @@ class UserTableSeeder extends Seeder
             'phone' => '0934242344',
             'address' => 'Cibinong',
             'leader_id' => $leader_id,
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
         \App\User::create([
             'id' => '#LTZU'.date('YmdHis').strtoupper(Str::random(3)),
@@ -88,7 +88,7 @@ class UserTableSeeder extends Seeder
             'phone' => '04543543543',
             'address' => 'Pondok Rajeg',
             'leader_id' => $leader_id,
-            'password' => bcrypt('okeoke'),
+            'password' => bcrypt('lattez2021'),
         ]);
     }
 }

@@ -48,7 +48,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
   
-        $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'id';
         if(auth()->attempt(array($fieldType => $input['email'], 'password' => $input['password'])))
         {
             return redirect()->route('sales');
