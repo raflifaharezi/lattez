@@ -29,23 +29,32 @@ Route::group(['middleware' => ['auth']],function (){
     Route::post('village-region', 'Lattez\OrdersController@village')
     ->name('region.village');
     
+
+
     //admin
+   
+
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
+
+Route::group(['prefix' => 'c/admin', 'middleware'], function(){
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/user', 'Admin\UserController@index')->name('user');
     Route::get('/product', 'Admin\ProductController@index')->name('product');
 
     Route::get('/transaction','Admin\TransactionCOntroller@index')->name('transaction');
-    Route::post('city', 'Admin\TransactionController@city')
-    ->name('region-city');
-    Route::post('district', 'Admin\TransactionController@district')
-    ->name('region-district');
-    Route::post('village', 'Admin\TransactionController@village')
-    ->name('region-village');
+
+    // Route::post('city', 'Admin\TransactionController@city')
+    // ->name('region-city');
+    // Route::post('district', 'Admin\TransactionController@district')
+    // ->name('region-district');
+    // Route::post('village', 'Admin\TransactionController@village')
+    // ->name('region-village');
 
     Route::get('/reward', 'Admin\RewardController@index')->name('reward');
-
-
-    Route::get('/home', 'HomeController@index')->name('home');
-
+    Route::post('/reward/create', 'Admin\RewardController@create')->name('reward.create');
+    Route::get('reward/delete/{id}', 'Admin\RewardController@delete')->name('admin.reward.delete');
 });
 Auth::routes();

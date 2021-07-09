@@ -119,9 +119,9 @@
                         <tr>
                             <td>{{ $i + ($reward->currentPage()-1) * $reward->perPage() }}</td>
                             <td>
-                                <img    src="{{ $k['img_path'] }}" 
-                                        alt=""
-                                        style="width: 40px; height:40px;">
+                                <img src="{{ Storage::url($k->img_path) }}" 
+                                    alt=""
+                                    style="width: 40px; height:40px;">
                             </td>
                             <td>{{ $k['name'] }}</td>
                             <td>{{ $k['sales'] }}</td>
@@ -134,9 +134,9 @@
                                     data-target="#editProduct">
                                     <i class="fas fa-marker"></i>
                                 </a>
-
+                                <input type="text" value="{{ $k['id'] }}" id="id-for-delete">
                                 <button type="button" 
-                                        class="btn btn-danger btn-sm ml-lg-1 mt-lg-0 mt-2" 
+                                        class="btn btn-danger btn-delete btn-sm ml-lg-1 mt-lg-0 mt-2" 
                                         data-toggle="modal" 
                                         data-target="#deleteProduct">
                                         <i class="fas fa-eraser"></i>
@@ -179,39 +179,48 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="">
+                    <form action="{{ route('reward.create') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="form-group col-lg-12">
                                 <label for="" class="col-form-label">Foto Reward</label>
                                 <input  type="file" 
                                         class="form-control" 
-                                        id=""
-                                        name="">
+                                        id="addPhoto"
+                                        name="img_path">
                             </div>
         
                             <div class="form-group col-lg-12">
                                 <label for="" class="col-form-label">Reward</label>
                                 <input  type="text" 
                                         class="form-control" 
-                                        id=""
-                                        name="">
+                                        id="addName"
+                                        name="name">
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Unit</label>
+                                <label for="" class="col-form-label">Sales</label>
                                 <input  type="number" 
                                         class="form-control" 
-                                        id=""
-                                        name=""
+                                        id="addSales"
+                                        name="sales">
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <label for="" class="col-form-label">Reward Quantity</label>
+                                <input  type="number" 
+                                        class="form-control" 
+                                        id="addRewardQuantity"
+                                        name="reward_quantity"
                                         min="0">
                             </div>
 
                             <div class="form-group col-lg-12">
                                 <label for="" class="col-form-label">Kategori</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Gold</option>
-                                    <option value="">Platinum</option>
+                                <select name="package_id" id="addPackage" class="form-control">
+                                    @foreach ($package as $v)
+                                        <option value="{{ $v['id'] }}">{{ $v['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -307,10 +316,61 @@
                 </button>
             </div>
             <div class="modal-body text-center">
+                <p class="">Hapus product dengan ID : <span class="font-weight-bold" id="id-delete"></span></p>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="#" id="a-delete" class="btn btn-danger border">Delete</a>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
+@push('after-script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+        crossorigin="anonymous">
+</script>
+
+{{-- <script>
+    $(document).ready(function(){
+
+        btnDeleteReward()
+       
+
+    function btnDeleteReward(){
+        // alert(id)
+    $('.btn-delete').click(function(){
+        // var id = $(this).siblings($('#delete-reward')).val();
+        var id = $(this).parents($('#id-for-delete')).val();
+        var link = '/c/admin/reward/delete/'+id;
+        
+        $("#id-delete").text(id);
+        $("#a-delete").attr('href', link);
+        alert(id);
+
+    }); 
+    };
+
+});
+</script> --}}
+<script>
+    // alert('oke')
+    $(document).ready(function(){
+
+        btnDeleteReward();
+
+
+        function btnDeleteReward(){
+        $('.btn-delete').click(function(){
+            var id = $(this).siblings($('#id-for-delete')).val();
+            var link = '/c/admin/reward/delete/'+id;
+            $("#id-delete").text(id);
+            $("#a-delete").attr('href', link);
+            alert(id);
+
+        }); 
+    }
+
+    });
+</script>
+@endpush

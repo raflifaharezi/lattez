@@ -4,23 +4,23 @@
         <img src="{{ asset('images/logo-white.svg') }}" alt="">
     </div>
     <div class="list-group list-group-flush mt-4" >
-        <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action link-bg side-user {{ Request::is('dashboard')? "active":"" }}">
+        <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action link-bg side-user {{ Request::is('c/admin/dashboard')? "active":"" }}">
             <i class="fas fa-border-all"></i>
             <span class="ml-4">Dashboard</span>
         </a>
-        <a href="{{ route('user') }}" class="list-group-item list-group-item-action link-bg side-user {{ Request::is('user')? "active":"" }}">
+        <a href="{{ route('user') }}" class="list-group-item list-group-item-action link-bg side-user {{ Request::is('c/admin/user')? "active":"" }}">
             <i class="fas fa-user-circle"></i>
             <span class="ml-4">User</span>
         </a>
-        <a href="{{ route('product') }}" class="list-group-item list-group-item-action link-bg {{ Request::is('product')? "active":"" }}">
+        <a href="{{ route('product') }}" class="list-group-item list-group-item-action link-bg {{ Request::is('c/admin/product')? "active":"" }}">
             <i class="fas fa-tags"></i>
             <span class="side-produk">Produk</span>
         </a>
-        <a href="{{ route('transaction') }}" class="list-group-item list-group-item-action link-bg {{ Request::is('transaction')? "active":"" }}">
+        <a href="{{ route('transaction') }}" class="list-group-item list-group-item-action link-bg {{ Request::is('c/admin/transaction')? "active":"" }}">
             <i class="fas fa-chart-bar"></i> 
             <span class="side-order">Order / Transaction</span>
         </a>
-        <a href="{{ route('reward') }}" class="list-group-item list-group-item-action link-bg side-reward {{ Request::is('reward')? "active":"" }}">
+        <a href="{{ route('reward') }}" class="list-group-item list-group-item-action link-bg side-reward {{ Request::is('c/admin/reward')? "active":"" }}">
             <i class="fas fa-award"></i> 
             <span class="ml-4">Reward</span>
         </a>
