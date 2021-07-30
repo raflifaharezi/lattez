@@ -97,6 +97,30 @@
                 data-target="#addProduct">
                 <i class="fas fa-plus-circle"></i> Tambah
             </a>
+            @if(session('add_success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    {{ session('add_success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if(session('edit_success'))
+                <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                    {{ session('edit_success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if(session('delete_success'))
+                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    {{ session('delete_success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="" style="overflow-x:auto;">
                 <table class="table table-hover table-striped" >
                     <thead class="header-colors">
@@ -110,7 +134,7 @@
                             <th class="text-white">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="table-rewards">
                         @if(count($reward) !=0)
                         @php
                             $i = 1;
@@ -119,7 +143,7 @@
                         <tr>
                             <td>{{ $i + ($reward->currentPage()-1) * $reward->perPage() }}</td>
                             <td>
-                                <img src="{{ Storage::url($k->img_path) }}" 
+                                <img src="{{asset('img/reward/'.$k->img_path) }}" 
                                     alt=""
                                     style="width: 40px; height:40px;">
                             </td>
@@ -129,16 +153,19 @@
                             <td>{{ $k['Package']['name'] }}</td>
                             <td>
                                 <a  href="" 
-                                    class="btn btn-sm btn-warning"
+                                    class="btn btn-sm btn-warning edit-reward"
                                     data-toggle="modal" 
-                                    data-target="#editProduct">
+                                    id="editReward"
+                                    data-target="#editProduct"
+                                    data-id = {{ $k['id'] }}
+                                    >
                                     <i class="fas fa-marker"></i>
                                 </a>
-                                <input type="text" value="{{ $k['id'] }}" id="id-for-delete">
+                                {{-- <input type="text" value="{{ $k['id'] }}" id="id-for-delete">s --}}
                                 <button type="button" 
                                         class="btn btn-danger btn-delete btn-sm ml-lg-1 mt-lg-0 mt-2" 
                                         data-toggle="modal" 
-                                        data-target="#deleteProduct">
+                                        data-target="#deleteProduct{{ $k['id'] }}">
                                         <i class="fas fa-eraser"></i>
                                 </button>
                             </td>
@@ -154,13 +181,67 @@
             <div class="d-flex justify-content-end flex-row">
                 {{ $reward->links() }}
             </div>
+
         </div>
     </div>
     <!-- /#page-content-wrapper -->
 
+    
+
 @endsection
 
 @section('modal')
+
+   <div id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  class="modal fade" 
+            aria-labelledby="exampleModalLabel" 
+            aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">
+                    <i class="fas fa-plus-circle"></i> Tambah Reward
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('reward.create') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label for="exampleInputEmail1">Course Id</label>
+                                <input type=text id="id" name=id required>
+                            </div>
+        
+                            <div class="form-group col-lg-12">
+                                <label for="exampleInputEmail1">Enter Course Name</label>
+                                <input type=text id="name" name=name required>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <label for="exampleInputEmail1">Enter Course Duration <small> (In hours)</small> </label>
+                                <input type=text id="duration" name=duration value="" required >
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <label for="exampleInputEmail1">Date </label>
+                                <input type=text id="date" name=date value="" required >
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
 {{-- Modal Tambah Produk --}}
     <div    class="modal fade" 
@@ -239,73 +320,90 @@
 {{-- End: Modal Tambah Produk --}}
 
 {{-- Start: Modal Edit Produk --}}
-    <div    class="modal fade" 
-            id="editProduct" 
-            tabindex="-1" 
-            aria-labelledby="exampleModalLabel" 
-            aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">
-                    <i class="fas fa-marker"></i> Edit Reward
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
+    {{-- @foreach ($reward as $i) --}}
+        <div    class="modal fade reward-product" 
+                id="editProduct" 
+                tabindex="-1" 
+                aria-labelledby="exampleModalLabel" 
+                aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">
+                        <i class="fas fa-marker"></i> Edit Reward
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('admin.reward.update') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="" name="id" id="editId">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label for="" class="col-form-label">Foto Reward</label>
+                                    <input  type="file" 
+                                            class="form-control" 
+                                            id="edit-Photo"
+                                            name="img_path">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label for="" class="col-form-label">Reward</label>
+                                    <input  type="text" 
+                                            class="form-control" 
+                                            id="name-reward"
+                                            value=""
+                                            name="name">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label for="" class="col-form-label">Sales</label>
+                                    <input  type="number"       
+                                            class="form-control" 
+                                            id="sales"
+                                            name="sales">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label for="" class="col-form-label">Reward Quantity</label>
+                                    <input  type="number" 
+                                            class="form-control" 
+                                            id="edit-RewardQuantity"
+                                            name="reward_quantity"
+                                            min="0">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label for="" class="col-form-label">Kategori</label>
+                                    <select name="package_id" id="edit-package" class="form-control">
+                                        @foreach ($package as $v)
+                                            <option class="edit-reward-option" value="{{ $v['id'] }}" id="reward{{ $v['id'] }}">{{ $v['name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-success">Edit</button>
+                            </div>
+                        </form>
+                    </div>
+                    
                 </div>
-                <div class="modal-body">
-                    <form action="" method="">
-                        @csrf
-                        <div class="row">
-                            <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Foto Reward</label>
-                                <input  type="file" 
-                                        class="form-control" 
-                                        id=""
-                                        name="">
-                            </div>
-        
-                            <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Reward</label>
-                                <input  type="text" 
-                                        class="form-control" 
-                                        id=""
-                                        name="">
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Unit</label>
-                                <input  type="number" 
-                                        class="form-control" 
-                                        id=""
-                                        name=""
-                                        min="0">
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label for="" class="col-form-label">Deskripsi Produk</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Gold</option>
-                                    <option value="">Platinum</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success">Edit</button>
-                        </div>
-                    </form>
-                </div>
-                
             </div>
-        </div>
     </div>
+    {{-- @endforeach --}}
+  
 {{-- End: Modal Edit Produk --}}
 
 {{-- Modal Hapus produk  --}}
-<div class="modal fade" id="deleteProduct" tabindex="-1" 
+@foreach ($reward as $k)
+<div class="modal fade" id="deleteProduct{{ $k['id'] }}" tabindex="-1" 
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -316,61 +414,71 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p class="">Hapus product dengan ID : <span class="font-weight-bold" id="id-delete"></span></p>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <a href="#" id="a-delete" class="btn btn-danger border">Delete</a>
+                <p class="">Hapus product dengan Nama : <span class="font-weight-bold">{{ $k['name'] }}</span></p>
+                <form action="{{ route('admin.reward.delete', $k->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger" >Delete</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-@endsection
-@push('after-script')
+@endforeach
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
         crossorigin="anonymous">
 </script>
-
-{{-- <script>
-    $(document).ready(function(){
-
-        btnDeleteReward()
-       
-
-    function btnDeleteReward(){
-        // alert(id)
-    $('.btn-delete').click(function(){
-        // var id = $(this).siblings($('#delete-reward')).val();
-        var id = $(this).parents($('#id-for-delete')).val();
-        var link = '/c/admin/reward/delete/'+id;
-        
-        $("#id-delete").text(id);
-        $("#a-delete").attr('href', link);
-        alert(id);
-
-    }); 
-    };
-
-});
-</script> --}}
 <script>
-    // alert('oke')
     $(document).ready(function(){
+        $('.edit-reward').click(function(){
+            let id = $(this).data('id');
+            // alert(id)
+            let iconIndex = $(this).parent().parent().index()+1;
+            // alert('oke');
+            let name =  $('#table-rewards tr:nth-child('+iconIndex+') td:nth-child(3)').text();
+            let sales =  $('#table-rewards tr:nth-child('+iconIndex+') td:nth-child(4)').text();
+            let rewardQuantity =  $('#table-rewards tr:nth-child('+iconIndex+') td:nth-child(5)').text();
+            let package =  $('#table-rewards tr:nth-child('+iconIndex+') td:nth-child(6)').text();
+            let EditPackageGold = $('#edit-package option:nth-child(1)').text();
+            let EditPackagePlatinum = $('#edit-package option:nth-child(2)').text();
+            if(package === $('#edit-package option:nth-child(1)').text()){
+                // alert('ok')
+                $('#edit-package option:nth-child(1)').attr('selected', 'selected');
+                $('#edit-package option:nth-child(2)').removeAttr('selected');
+                // console.log(package);
+            }
+            if(package === $('#edit-package option:nth-child(2)').text()){
+                // alert('ok')
+                $('#edit-package option:nth-child(2)').attr('selected', 'selected');
+                $('#edit-package option:nth-child(1)').removeAttr('selected');
+                // console.log(package);
+            }
+            // if(package === $('#edit-package option:nth-child(1)').text(){
+            //     $('#edit-package option:nth-child(2)').attr('selected');
+            // }
+            // alert(package);
+           
+            $('#editId').val(id);
+            $('#name-reward').val(name);
+            $('#sales').val(sales);
+            $('#edit-RewardQuantity').val(rewardQuantity);
 
-        btnDeleteReward();
-
-
-        function btnDeleteReward(){
-        $('.btn-delete').click(function(){
-            var id = $(this).siblings($('#id-for-delete')).val();
-            var link = '/c/admin/reward/delete/'+id;
-            $("#id-delete").text(id);
-            $("#a-delete").attr('href', link);
-            alert(id);
-
-        }); 
-    }
-
+            // $('#edit-package').val(package);
+            // $('select[name=package_id] option').filter(':selected').val();
+            
+            // $('#edit-package option').each(function() {
+            // if($(this).val() == package) {
+            //     $(this).prop("selected", true);
+            // }
+        });
     });
 </script>
+
+@endsection
+@push('after-script')
+
+
+
 @endpush

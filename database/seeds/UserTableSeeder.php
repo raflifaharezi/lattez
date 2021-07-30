@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder
         \App\User::create([
             'id' => '#LTZU'.date('YmdHis').strtoupper(Str::random(3)),
             'name'	=> 'Rafli Fahrezi',
-            'email'	=> 'rafligoodboy@gmail.com',
+            'email'	=> 'raflifahrezi@gmail.com',
             'sales'	=> 55,
             'phone' => '0989354353425',
             'address' => 'Curug 45',

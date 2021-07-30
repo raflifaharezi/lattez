@@ -98,6 +98,14 @@
                 data-target="#addUser">
                 <i class="fas fa-plus-circle"></i> Tambah
             </a>
+            @if(session('add_success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    {{ session('add_success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+             @endif
             <div class="" style="overflow-x:auto;">
                 <table class="table table-hover table-striped">
                     <thead class="header-colors">
@@ -174,7 +182,7 @@
                                 <button type="button" 
                                         class="btn btn-danger btn-sm ml-lg-1 mt-lg-0 mt-2" 
                                         data-toggle="modal" 
-                                        data-target="#deleteUser">
+                                        data-target="#deleteUser{{ $k->id }}">
                                         <i class="fas fa-eraser"></i>
                                 </button>
                             </td>
@@ -230,6 +238,7 @@
                                             <div class="font-user"></div>
                                         </div>
                                         
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -277,48 +286,41 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                <form action="" method="">
+                <form action="{{ route('admin.user.create') }}" method="post">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-lg-6">
-                            <label for="" class="col-form-label">Id Member</label>
-                            <input  type="text" 
-                                    class="form-control" 
-                                    id=""
-                                    name="">
-                        </div>
-    
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">Nama Lengkap</label>
                             <input  type="text" 
                                     class="form-control" 
-                                    id=""
-                                    name="">
+                                    id="addName"
+                                    name="name">
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">ALamat Lengkap</label>
                             <textarea   class="form-control" 
-                                        id=""
-                                        name=""
-                                        style="resize:none; height: 150px;">
-                            </textarea>
+                                        id="addAddress"
+                                        name="address"
+                                        style="resize:none; height: 150px;"
+                                        rows="3"
+                                        ></textarea>
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">Email</label>
                             <input  type="text" 
                                     class="form-control" 
-                                    id=""
-                                    name="">
+                                    id="addEmail"
+                                    name="email">
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">No. Handphone</label>
                             <input  type="number" 
                                     class="form-control" 
-                                    id=""
-                                    name=""
+                                    id="addPhone"
+                                    name="phone"
                                     min="0">
                         </div>
 
@@ -327,33 +329,33 @@
                             <input  type="text" 
                                     class="form-control" 
                                     id=""
-                                    name="">
+                                    name="leader_id">
                         </div>
 
-                        <div class="form-group col-lg-6">
-                            <label for="" class="col-form-label">Nama Leader</label>
-                            <input  type="text" 
-                                    class="form-control" 
-                                    id=""
-                                    name="">
-                        </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">No. Rekening</label>
                             <input  type="number" 
                                     class="form-control" 
-                                    id=""
-                                    name=""
-                                    min="0">
+                                    id="addRekening"
+                                    name="no_rekening"
+                                    >
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="" class="col-form-label">No. KTP</label>
                             <input  type="number" 
                                     class="form-control" 
-                                    id=""
-                                    name=""
-                                    min="0">
+                                    id="addKtp"
+                                    name="no_ktp"
+                                    >
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="" class="col-form-label">Role</label>
+                            <select name="role" id="addRole" class="form-control">
+                                <option value="member">Member</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
                     </div>
 
@@ -478,22 +480,29 @@
     </div>
 {{-- End Edit Modal --}}
 
-{{-- Modal Hapus User  --}}
-<div class="modal fade" id="deleteUser" tabindex="-1" 
+{{-- Modal delete user  --}}
+@foreach ($user as $k)
+    <div class="modal fade" id="deleteUser{{ $k->id }}" tabindex="-1" 
     aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div style="font-size: 20px;">Delete User ?</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-danger">Delete</button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div style="font-size: 20px;">Delete User ?</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="">Hapus user dengan Nama : <span class="font-weight-bold"></span>{{ $k->name }}</p>
+                    <form action="{{ route('admin.user.delete', $k->id) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger" >Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endforeach
 @endsection

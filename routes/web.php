@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@
 Route::get('/', function () {
     return redirect('orders');
 });
-Route::group(['middleware' => ['auth']],function (){
+Route::group(['middleware' => 'auth'],function (){
     Route::get('/sales', 'Lattez\SalesandBonusController@index')->name('sales');
     Route::post('/sales/choose-package', 'Lattez\SalesandBonusController@choosePackage')->name('package.choose');
     Route::get('/transaction-history','Lattez\TransactionHistoryController@index')->name('transaction-history');
@@ -39,9 +41,12 @@ Route::group(['middleware' => ['auth']],function (){
 
 });
 
-Route::group(['prefix' => 'c/admin', 'middleware'], function(){
-    Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
+Route::group(['prefix' => 'c/admin', 'middleware'=> 'role:admin'], function(){
+    Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/user', 'Admin\UserController@index')->name('user');
+    Route::post('/user/create', 'Admin\UserController@create')->name('admin.user.create');
+    Route::delete('user/delete/{$id}', 'Admin\UserController@delete')->name('admin.user.delete');
+
     Route::get('/product', 'Admin\ProductController@index')->name('product');
 
     Route::get('/transaction','Admin\TransactionCOntroller@index')->name('transaction');
@@ -55,6 +60,7 @@ Route::group(['prefix' => 'c/admin', 'middleware'], function(){
 
     Route::get('/reward', 'Admin\RewardController@index')->name('reward');
     Route::post('/reward/create', 'Admin\RewardController@create')->name('reward.create');
-    Route::get('reward/delete/{id}', 'Admin\RewardController@delete')->name('admin.reward.delete');
+    Route::delete('reward/delete/{id}', 'Admin\RewardController@delete')->name('admin.reward.delete');
+    Route::post('/reward/update', 'Admin\RewardController@update')->name('admin.reward.update');
 });
 Auth::routes();

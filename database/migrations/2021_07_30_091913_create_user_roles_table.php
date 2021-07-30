@@ -15,14 +15,14 @@ class CreateUserRolesTable extends Migration
     {
         Schema::create('user_roles', function (Blueprint $table) {
             $table->string('user_id');
-            $table->integer('role_id')->unsigned();
+            $table->unsignedInteger('role_id');
+            $table->timestamps();
 
-         //FOREIGN KEY CONSTRAINTS
-           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
 
          //SETTING THE PRIMARY KEYS
-         $table->primary(['user_id','role_id']);
+           $table->primary(['user_id','role_id']);
         });
     }
 

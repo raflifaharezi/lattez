@@ -21,21 +21,22 @@ class RewardController extends Controller
     }
 
     public function create(Request $request){
-        // if($request->hasFile('img_path')){
-        //     $reward = $request->file('img_path');
-        //     $reimage = time().'.'.$reward->getClientOriginalExtension();
-        //     $dest = public_path('/img/reward');
-        //     $reward->move($reimage, $dest);
+        // dd($request->all());
+        if($request->hasFile('img_path')){
+            $reward = $request->file('img_path');
+            $reimage = time().'.'.$reward->getClientOriginalExtension();
+            $dest = public_path('/img/reward');
+            $reward->move($dest, $reimage);
 
-        // }
+        }
 
         $reward = new Reward();
 
         $reward->name = $request->name;
         $reward->reward_quantity = $request->reward_quantity;
         $reward->sales = $request->sales;
-        // $reward->img_path = $reimage;
-         $reward['img_path'] = $request->file('img_path')->store('/img/product', 'public');
+        $reward->img_path = $reimage;
+        //  $reward['img_path'] = $request->file('img_path')->store('/images', 'public');
         $reward->package_id = $request->package_id;
 
         $reward->save();
@@ -44,20 +45,45 @@ class RewardController extends Controller
 
     }
 
-//     public function delete($id){
-//         $reward = Reward::find($id);
-//         return $reward;
+    public function update(Request $request){
+        // dd($request->all());
+        if($request->hasFile('img_path')){
+            $reward = $request->file('img_path');
+            $reimage = time().'.'.$reward->getClientOriginalExtension();
+            $dest = public_path('/img/reward');
+            $reward->move($dest, $reimage);
+            // dd($reimage);
 
-//         $reward->delete();
-//         return redirect()->back()->with('delete_success', 'Data Berhasil dihapus');
-//     }
+        }
+        // return $reimage;
+        $name = Reward::where('id', $request->id)->first();
+        // dd($name);
+        // dd($request->all());
+        // $goods = Goods::find($name->id);
+        // $name = Reward::first();
+        // dd($name);
+        $rewards = Reward::find($name->id);
+        // dd($rewards);
+        $rewards->name = $request->name;
+        $rewards->sales = $request->sales;
+        $rewards->reward_quantity = $request->reward_quantity;
+        $rewards->img_path = $reimage;
+        $rewards->package_id = $request->package_id;
 
-public function delete($id){
+        $rewards->update();
+
+        return redirect()->back()->with('edit_success', 'Data Berhasil diedit');
+        // $rewards = Reward::find($name->id);
+        // dd($rewards);
+    }
+
+
+    public function delete($id){
+        
+        $rewards = Reward::find($id);
+        // dd($rewards);
     
-    $rewards = Reward::find($id);
-    dd($rewards);
-   
-    $rewards->delete();
-    return redirect()->back()->with('delete_success', 'Data berhasil dihapus');
+        $rewards->delete();
+        return redirect()->back()->with('delete_success', 'Data berhasil dihapus');
 }
 }
